@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import DBuser.DBUser;
+import util.DBUser;
 
 public class UserDAO {
 
@@ -65,5 +65,51 @@ public class UserDAO {
 
 		return -1; // DB오류
 
+	}
+
+	public UserDTO getUser(String userID) {
+		String SQL = "SELECT * FROM USER WHERE userID = ?";
+
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, userID);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				UserDTO userDto = new UserDTO();
+				userDto.setID(rs.getString(1));
+				userDto.setPassword(rs.getString(2));
+				userDto.setUserName(rs.getString(3));
+				userDto.setEmail(rs.getString(4));
+				return userDto;
+			}
+			return null; // 아이디 없음
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null; // DB오류
+	}
+
+	public UserDTO findInfo(String email) {
+		String SQL = "SELECT * FROM user WHERE email = ?";
+
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				UserDTO userDto = new UserDTO();
+				userDto.setID(rs.getString(1));
+				userDto.setPassword(rs.getString(2));
+				userDto.setUserName(rs.getString(3));
+				userDto.setEmail(rs.getString(4));
+				return userDto;
+			}
+			return null; // 아이디 없음
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null; // DB오류
 	}
 }

@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import DBuser.DBUser;
+import util.DBUser;
 
 public class MenuDAO {
 

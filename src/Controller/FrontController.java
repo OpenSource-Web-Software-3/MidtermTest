@@ -55,7 +55,9 @@ public class FrontController extends HttpServlet {
 			viewPage = "findID.jsp";
 		} else if (com.equals("/find/findPassword.do")) {
 			viewPage = "findPassword.jsp";
-		}
+		} else if (com.equals("/findInfoAction.do")) {
+			viewPage = "findInfoAction";
+		} 
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response); // RequestDispatcher 현재 req와 res객체를 공유한다.
