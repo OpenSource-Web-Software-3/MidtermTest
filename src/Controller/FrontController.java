@@ -16,28 +16,38 @@ import javax.servlet.http.HttpServletResponse;
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doProcess(request, response);
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doProcess(request, response);
 	}
-	
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html; charset=utf-8");
 		request.setCharacterEncoding("UTF-8");
-		
+
 		String viewPage = null;
 		String URI = request.getRequestURI(); // /MidtermTest/view.do
 		String contextPath = request.getContextPath(); // /MidtermTest
-		String com = URI.substring(contextPath.length()); //  /view.do
-	
+		String com = URI.substring(contextPath.length()); // /view.do
+
 		if (com.equals("/index.do")) {
 			viewPage = "index.jsp";
 		}
-		
+		else if (com.equals("/resister1.do")) {
+			viewPage = "resister1.jsp";
+		}else if (com.equals("/resister2.do")) {
+			viewPage = "resister2.jsp";
+		} else if (com.equals("/resisterAction.do")) {
+			viewPage = "resisterAction";
+		}
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
-		dispatcher.forward(request, response); //RequestDispatcher 현재 req와 res객체를 공유한다.
+		dispatcher.forward(request, response); // RequestDispatcher 현재 req와 res객체를 공유한다.
 	}
 }

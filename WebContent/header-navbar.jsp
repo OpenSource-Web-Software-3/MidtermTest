@@ -33,7 +33,7 @@
             <a href="">로그인</a>
           </li>
           <li class="user-menu">
-            <a href="">회원가입</a>
+            <a href="resister1.do">회원가입</a>
           </li>
           <li class="user-menu">
             <a href="">장바구니</a>
