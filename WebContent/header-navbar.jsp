@@ -30,7 +30,7 @@
             <a href="./bag.jsp">BAG</a>
           </li>
           <li class="user-menu">
-            <a href="">로그인</a>
+            <a href="login.do">로그인</a>
           </li>
           <li class="user-menu">
             <a href="resister1.do">회원가입</a>

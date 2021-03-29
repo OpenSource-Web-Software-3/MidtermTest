@@ -10,8 +10,8 @@
 		<section class="find">
 			<!-- ID / 비밀번호 찾기 버튼 -->
 			<div class="buttons">
-				<a href="./findID.jsp" class="find-id">ID 찾기</a>
-				<a href="./findPassword.jsp" class="find-password">비밀번호 찾기</a>
+				<a href="findID.do" class="find-id">ID 찾기</a>
+				<a href="findPassword.do" class="find-password">비밀번호 찾기</a>
 			</div>
 			<div class="find-id-text">
 				<span class="title">ID 찾기</span>
@@ -22,7 +22,7 @@
 			</div>
 			<input type="text" class="e-mail" placeholder="E-mail" />
 			<button class="sendBtn">입력 완료</button>
-			<a href="" class="login-link">로그인</a>
+			<a href="../login.do" class="login-link">로그인</a>
 		</section>
 	</body>
 </html>

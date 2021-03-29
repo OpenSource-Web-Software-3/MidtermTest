@@ -36,15 +36,25 @@ public class FrontController extends HttpServlet {
 		String contextPath = request.getContextPath(); // /MidtermTest
 		String com = URI.substring(contextPath.length()); // /view.do
 
+		System.out.println(URI);
+		System.out.println(contextPath);
+
 		if (com.equals("/index.do")) {
 			viewPage = "index.jsp";
-		}
-		else if (com.equals("/resister1.do")) {
+		} else if (com.equals("/resister1.do")) {
 			viewPage = "resister1.jsp";
-		}else if (com.equals("/resister2.do")) {
+		} else if (com.equals("/resister2.do")) {
 			viewPage = "resister2.jsp";
 		} else if (com.equals("/resisterAction.do")) {
 			viewPage = "resisterAction";
+		} else if (com.equals("/login.do")) {
+			viewPage = "login.jsp";
+		} else if (com.equals("/loginAction.do")) {
+			viewPage = "loginAction";
+		} else if (com.equals("/find/findID.do")) {
+			viewPage = "findID.jsp";
+		} else if (com.equals("/find/findPassword.do")) {
+			viewPage = "findPassword.jsp";
 		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
