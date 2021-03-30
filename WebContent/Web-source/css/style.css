@@ -1,0 +1,207 @@
+@charset "EUC-KR";
+:root {
+  /* color 관련 */
+  --header-back: #82b3c9;
+  --navbar-back: #b3e5fc;
+  --section-back: ;
+  --footer-back: #b3e5fc;
+  --border-color: #e0e0e0;
+}
+
+html,
+body {
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+/* 공통적으로 적용할 css 속성 - 주로 html tag*/
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  padding-left: 0px;
+  list-style: none;
+}
+
+button {	
+	border: none;
+}
+
+.set-margin {
+  width: 60%;
+  margin: 0px auto;
+}
+
+/* 사용자 지정 css 속성*/
+/* header*/
+.header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+  /*background-color: var(--header-back);*/
+  width: 100%;
+  height: 90px;
+}
+
+.header a {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header i {
+  margin-right: 20px;
+  font-size: 25px;
+}
+
+.header .logo-name {
+  font-family: 'Roboto', sans-serif; 
+  font-size: 40px;
+  font-weight: 700;
+}
+
+/* navbar */
+.navbar,
+.navbar ul {
+  display: flex;
+  flex-direction: row;
+  /*background-color: var(--navbar-back);*/
+}
+
+.navbar {
+    height: 50px;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+
+.navbar .set-margin {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.navbar .item-ul,
+.navbar .user-ul {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .item-ul {
+	width: 65%;
+	margin-right: 5%;
+}
+
+.navbar .user-ul{
+	width: 30%;
+}
+
+.navbar .item-menu,
+.navbar .user-menu {
+	padding: 10px;
+}
+
+.navbar .item-menu {
+  font-size: 20px;
+}
+
+.navbar .user-menu {
+  font-size: 15px;
+}
+
+.navbar .item-menu:hover,
+.navbar .user-menu:hover {
+	background-color: #e0e0e0;
+	font-weight: bold;
+}
+
+/* main-section */
+.main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  height: 900px;
+}
+
+.main-section .banner {
+  width: 100%;
+  height: 500px;
+  margin-bottom: 30px;
+}
+
+.main-section .new-items-text {
+  font-size: 30px;
+}
+
+.main-section .new-item-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 250px;
+  width: 100%;
+}
+
+.main-section .new-item-list li {
+  border: 1px solid black;
+  width: 20%;
+}
+
+.main-section .new-item-list img {
+  height: 100%;
+  width: 100%;
+}
+
+/* sub-section */
+.sub-section {
+	position: relative;
+    height: fit-content;
+}
+
+/* sub-section -> category*/
+.sub-section .category-name {
+  font-size: 30px;
+}
+
+.sub-section .category-item-list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.sub-section .category-item {
+  width: 350px;
+  height: 500px;
+  margin-bottom: 50px;
+  border: 1px solid black; /* 추후에 삭제할 것*/
+}
+
+.sub-section .category-item .link,
+.sub-section .category-item .item-img {
+  width: 100%;
+  height: 400px;
+}
+
+.sub-section .category-item .item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+}
+/* footer*/
+footer {
+  width: 100%;
+  height: 200px;
+  border-top: 1px solid gray;
+  /*background-color: var(--footer-back);*/
+}
