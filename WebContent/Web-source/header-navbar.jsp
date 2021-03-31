@@ -7,7 +7,7 @@
     <!-- 쇼핑페이지 header -->
     <header class="header">
       <div class="set-margin">
-        <a class="page-title" href="<%=url2 %>/index.jsp">
+        <a class="page-title" href="index.do">
           <span class="logo-name">CROSS SHOPPING</span>
         </a>
       </div>
@@ -35,10 +35,10 @@
         </ul>
         <ul class="user-ul">
             <li class="user-menu">
-                <a href="<%=url2 %>/login.jsp">로그인</a>
+                <a href="login.do">로그인</a>
             </li>
 	          <li class="user-menu">
-	            <a href="<%=url2 %>/resister1.jsp">회원가입</a>
+	            <a href="resister1.do">회원가입</a>
 	          </li>
 	          <li class="user-menu">
 	            <a href="">장바구니</a>

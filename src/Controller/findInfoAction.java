@@ -114,7 +114,7 @@ public class findInfoAction extends HttpServlet {
 	public int sendEmail(UserDTO user, String formType) {
 		UserDAO userDao = new UserDAO();
 		// 인증 이메일 정보
-		String from = "ksygt728@gmail.com";
+		String from = new Gmail().emailID;
 		String to = user.getEmail();
 		String subject = "<" + user.getUserName() + ">님. FROM 쇼핑몰 웹 사이트에서 보낸 본인확인 메일입니다.";
 		String content = user.getUserName() + "님의 " + formType + "는 ";

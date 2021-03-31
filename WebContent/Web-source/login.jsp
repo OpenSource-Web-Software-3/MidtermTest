@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% String url3 = request.getContextPath(); 
-    url3 += "/Web-source";%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,7 +13,7 @@
 <body>
     <!-- login 부분 -->
     <section class="login">
-        <a class="main-page" href="./index.jsp">CROSS SHOPPING</a>
+        <a class="main-page" href="index.do">CROSS SHOPPING</a>
 	    <form class="login-form" method="POST" action="loginAction.do">
 			<fieldset>
 				<span>회원로그인</span>
@@ -25,9 +23,9 @@
 			</fieldset>
 		</form>
 		<div class="btn-wrap">
-			<button onclick="location.href='<%=url3 %>/find/findID.jsp'">아이디 찾기</button>
+			<button onclick="location.href='findID.do'">아이디 찾기</button>
 			<span>|</span>
-			<button onclick="location.href='<%=url3 %>/find/findPassword.jsp'">비밀번호 찾기</button>
+			<button onclick="location.href='findPassword.do'">비밀번호 찾기</button>
 		</div>
     </section>
 </body>
