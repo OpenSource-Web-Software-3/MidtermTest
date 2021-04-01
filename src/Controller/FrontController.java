@@ -39,11 +39,11 @@ public class FrontController extends HttpServlet {
 		System.out.println(URI);
 		System.out.println(contextPath);
 
-		if (com.equals("/Web-source/index.do")) {
+		if (com.contains("index.do")) {
 			viewPage = "index.jsp";
-		} else if (com.equals("/Web-source/resister1.do")) {
+		} else if (com.contains("resister1.do")) {
 			viewPage = "resister1.jsp";
-		} else if (com.equals("/Web-source/resister2.do")) {
+		} else if (com.contains("resister2.do")) {
 			viewPage = "resister2.jsp";
 		} else if (com.equals("/Web-source/resisterAction.do")) {
 			viewPage = "../resisterAction";
