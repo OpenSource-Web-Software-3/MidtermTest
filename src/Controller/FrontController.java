@@ -39,23 +39,31 @@ public class FrontController extends HttpServlet {
 		System.out.println(URI);
 		System.out.println(contextPath);
 
+<<<<<<< HEAD
 		if (com.contains("index.do")) {
 			viewPage = "index.jsp";
 		} else if (com.contains("resister1.do")) {
 			viewPage = "resister1.jsp";
 		} else if (com.contains("resister2.do")) {
+=======
+		if (com.contains("/index.do")) {
+			viewPage = "index.jsp";
+		} else if (com.contains("/resister1.do")) {
+			viewPage = "resister1.jsp";
+		} else if (com.contains("/resister2.do")) {
+>>>>>>> fc0af223f3fe4e24dece6aebcf539ea7102ed2b9
 			viewPage = "resister2.jsp";
-		} else if (com.equals("/Web-source/resisterAction.do")) {
+		} else if (com.contains("/resisterAction.do")) {
 			viewPage = "../resisterAction";
-		} else if (com.equals("/Web-source/login.do")) {
+		} else if (com.contains("/login.do")) {
 			viewPage = "login.jsp";
-		} else if (com.equals("/Web-source/loginAction.do")) {
+		} else if (com.contains("/loginAction.do")) {
 			viewPage = "../loginAction";
-		} else if (com.equals("/Web-source/findID.do")) {
+		} else if (com.contains("/findID.do")) {
 			viewPage = "find/findID.jsp";
-		} else if (com.equals("/Web-source/findPassword.do")) {
+		} else if (com.contains("/findPassword.do")) {
 			viewPage = "find/findPassword.jsp";
-		} else if (com.equals("/Web-source/findInfoAction.do")) {
+		} else if (com.contains("/findInfoAction.do")) {
 			viewPage = "../findInfoAction";
 		} 
 		
