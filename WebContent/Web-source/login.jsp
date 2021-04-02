@@ -27,6 +27,7 @@
 			<span>|</span>
 			<button onclick="location.href='findPassword.do'">비밀번호 찾기</button>
 		</div>
+		<a href="register1.do" class="register-link">회원가입</a>
     </section>
 </body>
 </html>
