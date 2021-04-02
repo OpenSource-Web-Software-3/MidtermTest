@@ -46,7 +46,7 @@
                 <% } 
                 // 사용자가 로그인을 했다면
                 else { %>
-                    <a class="log-out" href="<%=url2 %>/index.do">로그아웃</a>
+                    <a class="log-out" href="logoutAction.do">로그아웃</a>
                 <% } %>
               </li>
 	          <li class="user-menu">
@@ -61,16 +61,3 @@
         </ul>
       </div>
     </navbar>
-    <script>
-        var logout = document.querySelector('.log-out');
-        
-        // '로그아웃'을 클릭했을 때, 로그아웃 기능을 수행하도록 eventlistener 추가
-        logout.addEventListener('click', () => {
-        	if(<%= session.getAttribute("userID")%> != null) {
-                <% session.setAttribute("userID", null); %>
-            }
-            else {
-                alert('잘못된 접근입니다.\n먼저, 로그인을 진행해주세요.');
-            }
-        });
-    </script>

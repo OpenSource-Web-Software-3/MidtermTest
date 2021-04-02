@@ -51,14 +51,16 @@ public class FrontController extends HttpServlet {
 			viewPage = "login.jsp";
 		} else if (com.contains("/loginAction.do")) {
 			viewPage = "../loginAction";
+		} else if (com.contains("/Web-source/logoutAction.do")) {
+			viewPage = "../logoutAction";
 		} else if (com.contains("/findID.do")) {
 			viewPage = "find/findID.jsp";
 		} else if (com.contains("/findPassword.do")) {
 			viewPage = "find/findPassword.jsp";
 		} else if (com.contains("/findInfoAction.do")) {
 			viewPage = "../findInfoAction";
-		} 
-		
+		}
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response); // RequestDispatcher 현재 req와 res객체를 공유한다.
 	}
