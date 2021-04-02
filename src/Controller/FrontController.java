@@ -39,20 +39,12 @@ public class FrontController extends HttpServlet {
 		System.out.println(URI);
 		System.out.println(contextPath);
 
-<<<<<<< HEAD
-		if (com.contains("index.do")) {
-			viewPage = "index.jsp";
-		} else if (com.contains("resister1.do")) {
-			viewPage = "resister1.jsp";
-		} else if (com.contains("resister2.do")) {
-=======
 		if (com.contains("/index.do")) {
 			viewPage = "index.jsp";
-		} else if (com.contains("/resister1.do")) {
-			viewPage = "resister1.jsp";
-		} else if (com.contains("/resister2.do")) {
->>>>>>> fc0af223f3fe4e24dece6aebcf539ea7102ed2b9
-			viewPage = "resister2.jsp";
+		} else if (com.contains("/register1.do")) {
+			viewPage = "register1.jsp";
+		} else if (com.contains("/register2.do")) {
+			viewPage = "register2.jsp";
 		} else if (com.contains("/resisterAction.do")) {
 			viewPage = "../resisterAction";
 		} else if (com.contains("/login.do")) {

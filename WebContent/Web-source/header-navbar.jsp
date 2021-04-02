@@ -34,11 +34,23 @@
           </li>
         </ul>
         <ul class="user-ul">
-            <li class="user-menu">
-                <a href="<%=url2 %>/login.do">로그인</a>
-            </li>
+        <!-- 사용자의 로그인 여부를 통해 로그인 / 로그아웃 text 결정 -->
+        <% String userID = null;
+           if (session.getAttribute("userID") != null) {
+                userID = (String)session.getAttribute("userID");
+           }%>
+              <li class="user-menu">
+                <!-- 사용자가 아직 로그인을 안했다면 -->
+                <% if(userID == null) { %>
+                    <a class="login" href="<%=url2 %>/login.do">로그인</a>
+                <% } 
+                // 사용자가 로그인을 했다면
+                else { %>
+                    <a class="log-out" href="<%=url2 %>/index.do">로그아웃</a>
+                <% } %>
+              </li>
 	          <li class="user-menu">
-	            <a href="<%=url2 %>/resister1.do">회원가입</a>
+	            <a href="<%=url2 %>/register1.do">회원가입</a>
 	          </li>
 	          <li class="user-menu">
 	            <a href="">장바구니</a>
@@ -49,3 +61,16 @@
         </ul>
       </div>
     </navbar>
+    <script>
+        var logout = document.querySelector('.log-out');
+        
+        // '로그아웃'을 클릭했을 때, 로그아웃 기능을 수행하도록 eventlistener 추가
+        logout.addEventListener('click', () => {
+        	if(<%= session.getAttribute("userID")%> != null) {
+                <% session.setAttribute("userID", null); %>
+            }
+            else {
+                alert('잘못된 접근입니다.\n먼저, 로그인을 진행해주세요.');
+            }
+        });
+    </script>
