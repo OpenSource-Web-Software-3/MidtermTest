@@ -13,7 +13,7 @@
 		<section class="register2">
             <a class="main-page" href="index.do">CROSS SHOPPING</a>
 	        <span class="register-title">회원정보 입력</span>
-	        <form action="resisterAction.do" method="post">
+	        <form action="registerAction.do" method="post">
 	           <fieldset>
 	               <!-- 이름 -->
 	               <div class="input-label-wrap">

@@ -17,8 +17,8 @@ import user.UserDTO;
 /**
  * Servlet implementation class resisterAction
  */
-@WebServlet("/resisterAction")
-public class resisterAction extends HttpServlet {
+@WebServlet("/registerAction")
+public class registerAction extends HttpServlet {
 	private String[] strings;
 	private static final long serialVersionUID = 1L;
 

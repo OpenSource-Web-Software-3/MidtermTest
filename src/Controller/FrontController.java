@@ -45,8 +45,8 @@ public class FrontController extends HttpServlet {
 			viewPage = "register1.jsp";
 		} else if (com.contains("/register2.do")) {
 			viewPage = "register2.jsp";
-		} else if (com.contains("/resisterAction.do")) {
-			viewPage = "../resisterAction";
+		} else if (com.contains("/registerAction.do")) {
+			viewPage = "../registerAction";
 		} else if (com.contains("/login.do")) {
 			viewPage = "login.jsp";
 		} else if (com.contains("/loginAction.do")) {
