@@ -6,6 +6,7 @@
   --section-back: ;
   --footer-back: #b3e5fc;
   --border-color: #e0e0e0;
+  --accent-color: #f44336;
 }
 
 html,
@@ -98,11 +99,13 @@ button {
 	width: 30%;
 }
 
-.navbar .item-menu,
-.navbar .user-menu {
+.navbar .item-menu {
 	padding: 10px;
 }
 
+.navbar .user-menu {
+	padding: 10px 7px;
+}
 .navbar .item-menu {
   font-size: 20px;
 }
@@ -176,8 +179,8 @@ button {
 }
 
 .sub-section .category-item {
-  width: 350px;
-  height: 500px;
+  width: 300px;
+  height: 400px;
   margin-bottom: 50px;
   border: 1px solid black; /* 추후에 삭제할 것*/
 }
@@ -185,7 +188,7 @@ button {
 .sub-section .category-item .link,
 .sub-section .category-item .item-img {
   width: 100%;
-  height: 400px;
+  height: 320px;
 }
 
 .sub-section .category-item .item-info {
@@ -193,7 +196,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 80px;
   width: 100%;
   font-size: 20px;
   font-weight: bold;
