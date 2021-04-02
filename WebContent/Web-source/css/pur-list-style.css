@@ -1,0 +1,60 @@
+@charset "EUC-KR";
+
+.purchase-list span{
+	display: block;
+}
+.purchase-list .page-title {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-size: 40px;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+}
+
+.purchase-list .partition {
+	width: 100%;
+}
+
+.purchase-list .partition .line-box {
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px;
+	border-bottom: 1px solid var(--border-color);
+}
+
+.purchase-list .partition .item-list {
+	width: 90%;
+	padding: 10px 40px;
+}
+
+.purchase-list .partition .item-list a {
+	display: flex;
+    flex-direction: row;
+}
+
+.purchase-list .partition .item-list img {
+	border: 1px solid black;
+	width: 120px;
+	height: 120px;
+	margin-right: 20px;
+}
+
+.purchase-list .partition .item-list .info {
+	width: 85%;
+	border: 1px solid black;   /* border 속성은 영역을 보기위한 test (추후 삭제할 것)*/
+	padding: 10px 0px 10px 25px;
+}
+
+.purchase-list .partition .info .name {
+	font-size: 25px;
+	margin-bottom: 15px;
+}
+
+.purchase-list .partition .info .size-color,
+.purchase-list .partition .info .price {
+	font-size: 15px;
+	margin-bottom: 5px;
+}
+
+
