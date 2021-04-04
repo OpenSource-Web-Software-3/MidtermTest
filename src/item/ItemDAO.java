@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import util.DBUser;
 
@@ -27,6 +28,69 @@ public class ItemDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public ItemDTO getItem(int itemCode) {
+		String SQL = "SELECT * FROM item WHERE itemCode = ?";
+
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, itemCode);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				ItemDTO itemDto = new ItemDTO();
+				itemDto.setItemCode(rs.getInt(1));
+				itemDto.setItemName(rs.getString(2));
+				itemDto.setItemPrice(rs.getInt(3));
+				itemDto.setItemColor(rs.getString(4));
+				itemDto.setItemSize(rs.getString(5));
+				itemDto.setMain_cate(rs.getString(6));
+				itemDto.setSub_cate(rs.getString(7));
+				itemDto.setItemContent(rs.getString(8));
+
+				return itemDto;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	// 메인 카테고리 선택 시
+	public ArrayList<ItemDTO> getItemList(String main_cate) {
+
+		String SQL = "";
+		if (main_cate == null) {
+			SQL = "SELECT * FROM item ORDER BY itemCode DESC";
+		} else {
+			SQL = "SELECT * FROM item WHERE main_cate = ? ORDER BY itemCode DESC";
+		}
+
+		ArrayList<ItemDTO> list = new ArrayList<ItemDTO>();
+		try {
+			PreparedStatement pstmt = null;
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, main_cate);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				ItemDTO itemDto = new ItemDTO();
+				itemDto.setItemCode(rs.getInt(1));
+				itemDto.setItemName(rs.getString(2));
+				itemDto.setItemPrice(rs.getInt(3));
+				itemDto.setItemColor(rs.getString(4));
+				itemDto.setItemSize(rs.getString(5));
+				itemDto.setMain_cate(rs.getString(6));
+				itemDto.setSub_cate(rs.getString(7));
+				itemDto.setItemContent(rs.getString(8));
+				list.add(itemDto);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+
 	}
 
 }
