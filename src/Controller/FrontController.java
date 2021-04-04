@@ -59,6 +59,8 @@ public class FrontController extends HttpServlet {
 			viewPage = "find/findPassword.jsp";
 		} else if (com.contains("/findInfoAction.do")) {
 			viewPage = "../findInfoAction";
+		}else if (com.contains("/subAction.do")) {
+			viewPage = "../subAction";
 		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
