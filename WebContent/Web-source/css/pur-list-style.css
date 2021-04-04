@@ -1,5 +1,123 @@
 @charset "EUC-KR";
+/* 구매 페이지 */
+.purchase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 500px;
+    height: fix-content;
+    padding: 30px;
+}
 
+.purchase span {
+	display: block;
+}
+
+.purchase fieldset {
+	display: flex;
+	flex-direction: column;
+	margin: 0px;
+	border: none;
+}
+
+.purchase input {
+	width: 90%;
+	height: 35px;
+	font-size: 15px;
+	padding: 0px 10px;
+	margin-bottom: 10px;
+	border: 1px solid var(--border-color);
+	border-radius: 0px;
+	outline: none;
+}
+
+.purchase input::placeholder {
+	color: var(--border-color);
+}
+
+.purchase input:focus {
+	outline: none;
+	border: 1px solid var(--header-back);
+}
+
+.purchase .first-part,
+.purchase .second-part,
+.purchase .third-part {
+	width: 100%;
+}
+
+.purchase .first-part .title,
+.purchase .second-part .title,
+.purchase .third-part .title {
+	width: 96%;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom : 15px;
+	border-bottom :1px solid var(--border-color);
+	padding: 5px 10px; 
+}
+
+.purchase .first-part .title {
+    font-size : 30px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.purchase .first-part .item-info,
+.purchase .second-part .user-info-part,
+.purchase .third-part fieldset {
+	width: 100%;
+	padding: 0px 20px;
+}
+
+.purchase .item-info .row1 td {
+	border-bottom: 1px solid gray;
+	padding-bottom: 5px;
+}
+
+.purchase .item-info td {
+	text-align: center;
+	
+}
+
+.purchase .item-info {
+	margin-bottom: 20px;
+}
+
+.purchase .second-part span,
+.purchase .third-part label {
+	margin-bottom: 10px;
+}
+
+.purchase .address-form #postal-code {
+	text-align: center;
+	width: 100px;
+}
+
+.purchase .third-part #card-company {
+	width: 100px;
+}
+
+.purchase .purchaseBtn {
+	width: 100px;
+	height: 40px;
+    margin-top: 15px;
+}
+
+.purchase .purchaseBtn:hover{
+	cursor: pointer;
+	font-weight: bold;
+	
+	background-color: var(--navbar-back);
+}
+
+.purchase .purchaseBtn:focus {
+	outline: none;
+} 
+
+
+/* 구매상품 페이지*/
 .purchase-list span{
 	display: block;
 }
