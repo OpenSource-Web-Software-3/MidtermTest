@@ -14,6 +14,13 @@
 	display: block;
 }
 
+.purchase form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+    align-items: center;
+}
+
 .purchase fieldset {
 	display: flex;
 	flex-direction: column;
@@ -97,6 +104,14 @@
 
 .purchase .third-part #card-company {
 	width: 100px;
+}
+
+.purchase .third-part #card-number {
+	width: 200px;
+}
+
+.purchase .card-form input {
+	margin-left: 15px;
 }
 
 .purchase .purchaseBtn {
