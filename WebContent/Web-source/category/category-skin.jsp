@@ -46,7 +46,7 @@
        		for(int i = 0; i < itemList.size(); i++){
        %>	
 		        <li class="category-item bag">
-		          <a class="link" href="<%=url4%>/purchase/purchase.jsp?itemCode=<%=itemList.get(i).getItemCode()%>">
+		          <a class="link" href="<%=url4%>/category/item-info.jsp?itemCode=<%=itemList.get(i).getItemCode()%>">
 		            <img class="item-img" src="${pageContext.request.contextPath}/itemFile/<%=itemImageList.get(i) %>" alt="" />
 		          </a>
 		          <div class="item-info bag">

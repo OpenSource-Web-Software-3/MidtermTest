@@ -18,19 +18,19 @@
       <div class="set-margin">
         <ul class="item-ul">
           <li class="item-menu">
-            <a href="<%=url2 %>/subAction.do?main_cate=TOP">TOP</a>
+            <a href="<%=url2 %>/category_skinAction.do?main_cate=TOP">TOP</a>
           </li>
           <li class="item-menu">
-            <a href="<%=url2 %>/subAction.do?main_cate=Bottom">BOTTOM</a>
+            <a href="<%=url2 %>/category_skinAction.do?main_cate=Bottom">BOTTOM</a>
           </li>
           <li class="item-menu">
-            <a href="<%=url2 %>/subAction.do?main_cate=Shoes">SHOES</a>
+            <a href="<%=url2 %>/category_skinAction.do?main_cate=Shoes">SHOES</a>
           </li>
           <li class="item-menu">
-            <a href="<%=url2 %>/subAction.do?main_cate=Outer">OUTER</a>
+            <a href="<%=url2 %>/category_skinAction.do?main_cate=Outer">OUTER</a>
           </li>
           <li class="item-menu">
-            <a href="<%=url2 %>/subAction.do?main_cate=Bag">BAG</a>
+            <a href="<%=url2 %>/category_skinAction.do?main_cate=Bag">BAG</a>
           </li>
         </ul>
         <ul class="user-ul">
@@ -56,7 +56,7 @@
 	            <a href="">장바구니</a>
 	          </li>
 	          <li class="user-menu">
-	            <a href="">구매내역</a>
+	            <a href="<%=url2 %>/purchaseListAction.do">구매내역</a>
 	          </li>
         </ul>
       </div>
