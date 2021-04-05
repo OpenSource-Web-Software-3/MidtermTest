@@ -9,9 +9,9 @@
 <html lang="en">
   <head>
     <%@include file="../head-file.jsp" %>
-    <link rel="stylesheet" href="<%=url4 %>/css/aside-style.css" />
+    <link rel="stylesheet" href="<%=url4 %>/css/aside-style.css" /> 
     <title>Bag</title>
-  </head>
+  </head> 
   <body>
     <%@include file="../header-navbar.jsp" %>
     <%@include file="../aside.jsp" %>
@@ -22,23 +22,21 @@
     -->
     
     <%
+		String main_cate = null;
+		if(request.getParameter("main_cate") != null){
+			main_cate = request.getParameter("main_cate");
+		}
     
 	    ArrayList<ItemDTO> itemList = new ArrayList<>();
 		if(request.getAttribute("itemList") != null){
 			itemList = (ArrayList<ItemDTO>) request.getAttribute("itemList");
 		}
 		
-		String main_cate = null;
-		if(request.getParameter("main_cate") != null){
-			main_cate = request.getParameter("main_cate");
+		ArrayList<String> itemImageList = new ArrayList<>();
+		if(request.getAttribute("itemImageList") != null){
+			itemImageList = (ArrayList<String>) request.getAttribute("itemImageList");
 		}
-
-    	for(int i = 0; i<itemList.size(); i++){
-    		System.out.println(itemList.get(i).getItemCode());
-    	}
     %>
-    
-    
     
     <section class="main-section sub-section set-margin">
       <div class="category-name"><%= main_cate %></div>
@@ -48,8 +46,8 @@
        		for(int i = 0; i < itemList.size(); i++){
        %>	
 		        <li class="category-item bag">
-		          <a class="link" href="">
-		            <img class="item-img" src="./image/bag/bag1.jpg" alt="" />
+		          <a class="link" href="<%=url4%>/purchase/purchase.jsp?itemCode=<%=itemList.get(i).getItemCode()%>">
+		            <img class="item-img" src="${pageContext.request.contextPath}/itemFile/<%=itemImageList.get(i) %>" alt="" />
 		          </a>
 		          <div class="item-info bag">
 		            <span class="name"><%=itemList.get(i).getItemName() %></span>
