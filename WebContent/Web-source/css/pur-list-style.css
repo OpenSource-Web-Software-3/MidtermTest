@@ -1,5 +1,5 @@
 @charset "EUC-KR";
-/* ±¸¸Å ÆäÀÌÁö */
+/* êµ¬ë§¤ í˜ì´ì§€ */
 .purchase {
     display: flex;
     flex-direction: column;
@@ -12,6 +12,13 @@
 
 .purchase span {
 	display: block;
+}
+
+.purchase form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+    align-items: center;
 }
 
 .purchase fieldset {
@@ -99,6 +106,14 @@
 	width: 100px;
 }
 
+.purchase .third-part #card-number {
+	width: 200px;
+}
+
+.purchase .card-form input {
+	margin-left: 15px;
+}
+
 .purchase .purchaseBtn {
 	width: 100px;
 	height: 40px;
@@ -117,7 +132,7 @@
 } 
 
 
-/* ±¸¸Å»óÇ° ÆäÀÌÁö*/
+/* êµ¬ë§¤ìƒí’ˆ í˜ì´ì§€*/
 .purchase-list span{
 	display: block;
 }
@@ -160,7 +175,7 @@
 
 .purchase-list .partition .item-list .info {
 	width: 85%;
-	border: 1px solid black;   /* border ¼Ó¼ºÀº ¿µ¿ªÀ» º¸±âÀ§ÇÑ test (ÃßÈÄ »èÁ¦ÇÒ °Í)*/
+	border: 1px solid black;   /* border ì†ì„±ì€ ì˜ì—­ì„ ë³´ê¸°ìœ„í•œ test (ì¶”í›„ ì‚­ì œí•  ê²ƒ)*/
 	padding: 10px 0px 10px 25px;
 }
 

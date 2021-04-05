@@ -46,35 +46,35 @@
 	               </tbody>
 	           </table>
 	       </div>
-	       <!-- 배송지 정보 부분 -->
-	       <div class="second-part">
-	           <span class="title">배송지 정보</span>
-	           <div class="user-info-part">
-	               <span>수령인 : user name</span>
-	               <span>주소</span>
-	               <form class="address-form" action="">
-	                   <fieldset>
-	                       <input id="postal-code" type="text" placeholder="우편주소"/>
-	                       <input id="user-address" type="text" placeholder="상세주소"/>
-	                   </fieldset>
-	               </form>
+
+	       <!-- 구매와 관련된 정보를 입력하는 부분 -->
+	       <form action="">
+	           <!-- 배송지 정보 입력 part -->
+	           <div class="second-part">
+	               <span class="title">배송지 정보</span>
+	               <div class="user-info-part">
+	                   <span>수령인 : user name</span>
+	                   <span>주소</span>
+	                   <fieldset class="address-form">
+                               <input id="postal-code" name="" type="text" placeholder="우편주소"/>
+                               <input id="user-address" name="" type="text" placeholder="상세주소"/>
+                       </fieldset>
+	               </div>
 	           </div>
-	       </div>
-	       <!-- 결제 수단 -->
-	       <div class="third-part">
-	           <span class="title">결재수단</span>
-	           <form action="" class="card-form">
-	               <fieldset>
-	                   <label for="card-company">카드 회사</label>
-	                   <input id="card-company" type="text" />
-	                   
-	                   <label for="card-number">카드 번호</label>
-                       <input id="card-number" type="text" />
-	               </fieldset>
-	           </form>
-	       </div>
-	       <!-- 구매 버튼 -->
-	       <button class="purchaseBtn">구매하기</button>
+	           <!-- 결제 수단을 입력하는 part -->
+	           <div class="third-part">
+	               <span class="title">결재수단</span>
+	                <fieldset class="card-form">
+                           <label for="card-company">카드 회사</label>
+                           <input id="card-company" name="" type="text" />
+                           
+                           <label for="card-number">카드 번호</label>
+                           <input id="card-number" name="" type="text" />
+                    </fieldset>
+	           </div>
+	           <!-- 구매 버튼 -->
+	           <button class="purchaseBtn">구매하기</button>
+	       </form>
 	   </section>
 	</body>
 </html>
