@@ -61,6 +61,8 @@ public class FrontController extends HttpServlet {
 			viewPage = "../findInfoAction";
 		}else if (com.contains("/category_skinAction.do")) {
 			viewPage = "../category_skinAction";
+		}else if (com.contains("/purchaseAction.do")) {
+			viewPage = "../purchaseAction";
 		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);

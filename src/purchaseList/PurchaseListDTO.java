@@ -6,6 +6,7 @@ public class PurchaseListDTO {
 	private String purchaseDate;
 	private String folderName;
 	private String userAddress;
+	private String cardNumber;
 
 	public int getItemCode() {
 		return itemCode;
@@ -47,4 +48,11 @@ public class PurchaseListDTO {
 		this.userAddress = userAddress;
 	}
 
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
 }

@@ -96,8 +96,8 @@
 	                   <span>수령인 : <%=itemDto.getItemName() %></span>
 	                   <span>주소</span>
 	                   <fieldset class="address-form">
-                               <input id="postal-code" name="" type="text" placeholder="우편주소"/>
-                               <input id="user-address" name="" type="text" placeholder="상세주소"/>
+                               <input id="postal-code" name="postal_code" type="text" placeholder="우편주소"/>
+                               <input id="user-address" name="user_address" type="text" placeholder="상세주소"/>
                        </fieldset>
 	               </div>
 	           </div>
@@ -106,10 +106,11 @@
 	               <span class="title">결재수단</span>
 	                <fieldset class="card-form">
                            <label for="card-company">카드 회사</label>
-                           <input id="card-company" name="" type="text" />
+                           <input id="card-company" name="card_company" type="text" />
                            
                            <label for="card-number">카드 번호</label>
-                           <input id="card-number" name="" type="text" />
+                           <input id="card-number" name="card_number" type="text" />
+                           <input type="hidden" name="itemCode" value="<%=itemCode %>" />
                     </fieldset>
 	           </div>
 	           <!-- 구매 버튼 -->
