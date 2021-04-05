@@ -36,10 +36,7 @@ public class subAction extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 
 		ItemDAO itemDao = new ItemDAO();
-
 		FileDAO fileDao = new FileDAO();
-		String directory = getServletContext().getRealPath("/itemFile/");
-		directory = directory.replaceAll("\\\\", "/");
 
 		String main_cate = null;
 		if (request.getParameter("main_cate") != null) {
@@ -49,16 +46,15 @@ public class subAction extends HttpServlet {
 		ArrayList<ItemDTO> itemList = new ArrayList<>();
 		itemList = itemDao.getItemList(main_cate);
 
-		// 아이템 이미지를 file DB에서 가져오는 과정 (아직 구현 안함)
-//		ArrayList<String> itemImageList = new ArrayList<String>();
-//		for (int i = 0; i < itemList.size(); i++) {
-//			String itemImagePath = fileDao.getProfile(itemList.get(i).getItemCode());
-//			//있으면 경로 return 없으면 "" return
-//			itemImageList.add(itemImagePath);
-//		}
+		// 아이템 이미지를 file DB에서 가져오는 과정
+		ArrayList<String> itemImageList = new ArrayList<String>();
+		for (int i = 0; i < itemList.size(); i++) {
+			String itemImagePath = fileDao.getFilePath(itemList.get(i).getItemCode()); //있으면 경로 return 없으면 "" return
+			itemImageList.add(itemImagePath);
+		}
 
 		request.setAttribute("itemList", itemList);
-//		request.setAttribute("itemImageList", itemImageList);
+		request.setAttribute("itemImageList", itemImageList);
 		request.setAttribute("main_cate", main_cate);
 
 		dispatcher = context.getRequestDispatcher("/Web-source/category/bag.jsp");
