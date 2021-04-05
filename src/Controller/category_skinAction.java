@@ -18,8 +18,8 @@ import item.ItemDTO;
 /**
  * Servlet implementation class SubAction
  */
-@WebServlet("/subAction")
-public class subAction extends HttpServlet {
+@WebServlet("/category_skinAction")
+public class category_skinAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -57,7 +57,7 @@ public class subAction extends HttpServlet {
 		request.setAttribute("itemImageList", itemImageList);
 		request.setAttribute("main_cate", main_cate);
 
-		dispatcher = context.getRequestDispatcher("/Web-source/category/bag.jsp");
+		dispatcher = context.getRequestDispatcher("/Web-source/category/category-skin.jsp");
 		dispatcher.forward(request, response);
 
 	}
