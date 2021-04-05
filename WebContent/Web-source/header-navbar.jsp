@@ -56,7 +56,7 @@
 	            <a href="">장바구니</a>
 	          </li>
 	          <li class="user-menu">
-	            <a href="">구매내역</a>
+	            <a href="<%=url2 %>/purchaseListAction.do">구매내역</a>
 	          </li>
         </ul>
       </div>

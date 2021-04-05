@@ -4,8 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
-import user.UserDTO;
+import item.ItemDTO;
 import util.DBUser;
 
 public class PurchaseListDAO {
@@ -49,4 +50,52 @@ public class PurchaseListDAO {
 		return -1; // DB오류
 
 	}
+
+	// servlet에서 getItem getPurchaseItem 둘다 사용
+	public ArrayList<PurchaseListDTO> getPurchaseItem(String ID) {
+		String SQL = "SELECT * FROM purchase_list WHERE ID = ? ORDER BY purchaseDate DESC";
+
+		ArrayList<PurchaseListDTO> list = new ArrayList<>();
+
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, ID);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				PurchaseListDTO purchaseListDto = new PurchaseListDTO();
+				purchaseListDto.setItemCode(rs.getInt(1));
+				purchaseListDto.setID(rs.getString(2));
+				purchaseListDto.setPurchaseDate(rs.getString(3).substring(0, 4) + "." + rs.getString(3).substring(5, 7)
+						+ "." + rs.getString(3).substring(8, 10));
+				purchaseListDto.setFolderName(rs.getString(4));
+				purchaseListDto.setUserAddress(rs.getString(5));
+				purchaseListDto.setCardNumber(rs.getString(6));
+				list.add(purchaseListDto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	//날짜 별로 for문을 돌리기 위해 날짜만 이용해서 group형식으로 가져옴
+	public ArrayList<String> getPurchaseDate(String ID) {
+		String SQL = "SELECT substr(purchaseDate,1,10) FROM purchase_list WHERE ID = ? GROUP BY substr(purchaseDate,1,10) ORDER BY purchaseDate DESC";
+		ArrayList<String> list = new ArrayList<>();
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, ID);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				list.add(rs.getString(1).substring(0, 4) + "." + rs.getString(1).substring(5, 7) + "."
+						+ rs.getString(1).substring(8, 10));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 }
