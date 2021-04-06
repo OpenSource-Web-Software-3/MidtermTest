@@ -1,5 +1,5 @@
 @charset "EUC-KR";
-/* 구매 페이지 */
+/* 援щℓ ���댁� */
 .purchase {
     display: flex;
     flex-direction: column;
@@ -132,7 +132,7 @@
 } 
 
 
-/* 구매상품 페이지*/
+/* purchase-list css */
 .purchase-list span{
 	display: block;
 }
@@ -175,7 +175,7 @@
 
 .purchase-list .partition .item-list .info {
 	width: 85%;
-	border: 1px solid black;   /* border 속성은 영역을 보기위한 test (추후 삭제할 것)*/
+	border: 1px solid black;   /* border ���깆�� ������ 蹂닿린���� test (異��� ������ 寃�)*/
 	padding: 10px 0px 10px 25px;
 }
 
@@ -189,5 +189,57 @@
 	font-size: 15px;
 	margin-bottom: 5px;
 }
+
+/* shop cart css */
+.shop-cart span{
+    display: block;
+}
+.shop-cart .page-title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 40px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.shop-cart .cart-list {
+    width: 100%;
+}
+
+.shop-cart .cart-list .item-list {
+    width: 90%;
+    padding: 10px 40px;
+}
+
+.shop-cart .cart-list .item-list a {
+    display: flex;
+    flex-direction: row;
+}
+
+.shop-cart .cart-list .item-list img {
+    border: 1px solid black;
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+}
+
+.shop-cart .cart-list .item-list .info {
+    width: 85%;
+    border: 1px solid black;   /* border ���깆�� ������ 蹂닿린���� test (異��� ������ 寃�)*/
+    padding: 10px 0px 10px 25px;
+}
+
+.shop-cart .cart-list .info .name {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.shop-cart .cart-list .info .size-color,
+.shop-cart .partition .info .price {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
 
 
