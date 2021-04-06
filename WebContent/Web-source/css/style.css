@@ -31,6 +31,14 @@ button {
 	border: none;
 }
 
+button:hover {
+	cursor: pointer;
+}
+
+button:focus {    
+    outline: none;
+}
+
 .set-margin {
   width: 60%;
   margin: 0px auto;
@@ -116,8 +124,7 @@ button {
 
 .navbar .item-menu:hover,
 .navbar .user-menu:hover {
-	background-color: #e0e0e0;
-	font-weight: bold;
+	background-color: var(--navbar-back);
 }
 
 /* main-section */
@@ -129,10 +136,85 @@ button {
   height: 900px;
 }
 
+/* banner */
+.main-section .banner-slide,
+.main-section .banner-slide .list {
+	width: 100%;
+	height: 500px;
+	margin-top: 0px;
+	padding: 0px;
+}
+
+.main-section .banner-slide {
+	position: relative;
+    margin-bottom: 30px;
+}
+
+.main-section .banner-slide .list {
+	position: absolute;
+}
+
+.main-section .banner-slide li,
 .main-section .banner {
-  width: 100%;
-  height: 500px;
-  margin-bottom: 30px;
+	position: absolute;
+	width: 100%;
+    height: 100%;
+}
+
+.main-section .banner-slide .list li {
+	display: none;
+}
+
+.main-section .banner-slide li.active{
+	display: block;
+}
+
+.main-section .btn-wrap {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.main-section .btn-wrap button {
+	position: absolute;
+    background: none;
+    top: 50%;
+    color: gray;
+    font-size: 40px;
+    cursor: pointer;
+}
+.main-section .btn-wrap button.left {
+	left: 2%;
+}
+.main-section .btn-wrap button.right {
+	left:95%;
+}
+
+/* indicator */
+.main-section .indicate {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	position: absolute;
+	top: 90%;
+	width: 100%;
+	height: 20px;
+	margin: 0px;
+}
+
+.main-section .indicate li {
+	position: relative;
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+	background-color: var(--border-color);
+	border: 1px solid var(--border-color);
+	margin: 0px 5px;
+	cursor: pointer;
+}
+
+.main-section .indicate li.active {
+	background-color: white;
 }
 
 .main-section .new-items-text {
