@@ -11,8 +11,8 @@
 	display: block;
 }
 
-.item-info .item-image,
-.item-info .info {
+.item-info form,
+.item-info .item-image {
 	width: 45%;
 	height: 400px;
 }
