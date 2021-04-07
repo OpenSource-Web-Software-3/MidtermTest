@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <aside class="category-aside">
-      <ul class="aside">
+      <ul class="top">
         <!-- TOP -->
         <li class="first-cate">
           <span>TOP</span>
@@ -23,7 +23,8 @@
             </li>
           </ul>
         </li>
-
+      </ul>
+      <ul class="bottom">
         <!-- BOTTOM -->
         <li class="first-cate">
           <span>BOTTOM</span>
@@ -41,7 +42,8 @@
             </li>
           </ul>
         </li>
-
+      </ul>
+      <ul class="shoes">
         <!-- SHOES -->
         <li class="first-cate">
           <span>SHOES</span>
@@ -63,7 +65,8 @@
             </li>
           </ul>
         </li>
-
+       </ul>
+       <ul class="outer">
         <!-- OUTER -->
         <li class="first-cate">
           <span>OUTER</span>
@@ -85,7 +88,8 @@
             </li>
           </ul>
         </li>
-
+      </ul>
+      <ul class="bag">
         <!-- BAG -->
         <li class="first-cate">
           <span>BAG</span>
