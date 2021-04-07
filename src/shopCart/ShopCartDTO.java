@@ -1,6 +1,6 @@
-package shoppingList;
+package shopCart;
 
-public class ShoppingListDTO {
+public class ShopCartDTO {
 
 	private int itemCode;
 	private String ID;

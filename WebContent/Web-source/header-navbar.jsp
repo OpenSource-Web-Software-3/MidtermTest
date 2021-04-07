@@ -54,7 +54,7 @@
 	          </li>
 	          <li class="user-menu">
 	            <!--  -->
-	            <a href="<%=url2 %>/purchase/shop-cart.jsp">장바구니</a>
+	            <a href="<%=url2 %>/shopCartAction.do">장바구니</a>
 	          </li>
 	          <li class="user-menu">
 	            <a href="<%=url2 %>/purchaseListAction.do">구매내역</a>

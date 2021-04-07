@@ -61,10 +61,12 @@ public class FrontController extends HttpServlet {
 			viewPage = "../findInfoAction";
 		} else if (com.contains("/category_skinAction.do")) {
 			viewPage = "../category_skinAction";
-		} else if (com.contains("/purchaseAction.do")) {
+		} else if (com.contains("/purchaseAction.do")) { //구매하기 버튼
 			viewPage = "../purchaseAction";
-		} else if (com.contains("/purchaseListAction.do")) {
+		} else if (com.contains("/purchaseListAction.do")) { //구매내역 목록 이동 시
 			viewPage = "../purchaseListAction";
+		}else if (com.contains("/shopCartAction.do")) {
+			viewPage = "../shopCartAction";
 		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);

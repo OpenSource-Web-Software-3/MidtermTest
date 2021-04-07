@@ -16,15 +16,15 @@ import javax.servlet.http.HttpSession;
 import file.FileDAO;
 import item.ItemDAO;
 import item.ItemDTO;
-import purchaseList.PurchaseListDAO;
-import purchaseList.PurchaseListDTO;
+import shopCart.ShopCartDAO;
+import shopCart.ShopCartDTO;
 
 
 /**
  * Servlet implementation class purchaseListAction
  */
-@WebServlet("/purchaseListAction")
-public class purchaseListAction extends HttpServlet {
+@WebServlet("/shopCartAction")
+public class shopCartAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -61,45 +61,35 @@ public class purchaseListAction extends HttpServlet {
 			return;
 		}
 		
-		/////////////이미 구매한 상품인지 체크?///////////
+		//이미 장바구니 목록에 담았는지 체크
 		
-		/* -- 가져 올 데이터들 --
-		 * 1. Date 가져오기
-		 * 2. purchaseList 가져오기
-		 * 3. 구매목록 item에 해당하는 item정보 가져오기
-		 * 4. 해당 이미지 파일들 가져오기
-		 */
-		
-		PurchaseListDAO purchaseListDao = new PurchaseListDAO();
+		ShopCartDAO shopCartDao = new ShopCartDAO();
 		ItemDAO itemDao = new ItemDAO();
 		FileDAO fileDao = new FileDAO();
 		
 		
-		ArrayList<String> purchaseDate = purchaseListDao.getPurchaseDate(userID); // 1.Date 가져오기
-		ArrayList<PurchaseListDTO> purchaseItemList = purchaseListDao.getPurchaseItem(userID); // 2.purchaseList 가져오기
+		ArrayList<String> addDateList = shopCartDao.getAddDate(userID); // 1.Date 가져오기
+		ArrayList<ShopCartDTO> shopCartList = shopCartDao.getShopCartItem(userID); // 2.purchaseList 가져오기
 		
 		
-		// ----- 3.현재 구매목록 item에 해당하는 item정보 가져오기 -----
-		// purchaseList는 item테이블의 컬럼 + purchaseList의 컬럼으로 만들어짐(purchaseList속성에 없는 item의 정보가 있기 때문에)
-		//(SQL join연산을 해도 마땅히 받아올 변수가 없음)
 		ArrayList<ItemDTO> itemList = new ArrayList<ItemDTO>(); 
 		
-		for (int i = 0; i < purchaseItemList.size(); i++) {
-			itemList.add(itemDao.getItem(purchaseItemList.get(i).getItemCode()));
+		for (int i = 0; i < shopCartList.size(); i++) {
+			itemList.add(itemDao.getItem(shopCartList.get(i).getItemCode()));
 		}
 		
 		// 4.해당 이미지 파일들 가져오기
 		ArrayList<String> itemImageList = new ArrayList<String>();
-		for (int i = 0; i < purchaseItemList.size(); i++) {
-			itemImageList.add(fileDao.getFilePath(purchaseItemList.get(i).getItemCode()));
+		for (int i = 0; i < shopCartList.size(); i++) {
+			itemImageList.add(fileDao.getFilePath(shopCartList.get(i).getItemCode()));
 		}
 
-		request.setAttribute("purchaseDate", purchaseDate);
-		request.setAttribute("purchaseItemList", purchaseItemList);
+		request.setAttribute("addDateList", addDateList);
+		request.setAttribute("shopCartList", shopCartList);
 		request.setAttribute("itemList", itemList);
 		request.setAttribute("itemImageList", itemImageList);
-
-		dispatcher = context.getRequestDispatcher("/Web-source/purchase/purchase-list.jsp");
+		
+		dispatcher = context.getRequestDispatcher("/Web-source/purchase/shop-cart.jsp");
 		dispatcher.forward(request, response);
 
 		
