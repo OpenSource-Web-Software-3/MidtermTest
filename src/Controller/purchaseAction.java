@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import purchaseList.PurchaseListDAO;
-import user.UserDAO;
-import user.UserDTO;
+import shopCart.ShopCartDAO;
 
 /**
  * Servlet implementation class purchaseAction
@@ -73,6 +72,16 @@ public class purchaseAction extends HttpServlet {
 					card_number);
 
 			if (result == 1) { // 구매하기 성공
+				ShopCartDAO shopCartDao = new ShopCartDAO();
+				int success = shopCartDao.deletePurchaseItem_In_ShopCart(userID, itemCode);
+				if (success == -1) {
+					PrintWriter script = response.getWriter();
+					script.println("<script>");
+					script.println("alert('삭제과정 DB오류')");
+					script.println("history.back()");
+					script.println("</script>");
+					return;
+				}
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('구매하였습니다.')");

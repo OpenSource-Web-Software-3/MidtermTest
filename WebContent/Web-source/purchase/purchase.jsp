@@ -3,6 +3,7 @@
 <%@ page import="item.ItemDAO"%>
 <%@ page import="item.ItemDTO"%>
 <%@ page import="file.FileDAO"%>
+<%@ page import="user.UserDAO"%>
 <%@ page import="java.util.ArrayList"%>  
 <%@ page import="java.io.PrintWriter"%> 
 <% String url6 = request.getContextPath()+"/Web-source"; %>
@@ -44,6 +45,9 @@
     		
     		ItemDTO itemDto = new ItemDAO().getItem(itemCode); //item정보가져오기
     		String itemImageFile = new FileDAO().getFilePath(itemCode);
+    		
+    		UserDAO userDao = new UserDAO();
+    		String userName = userDao.getUser(userID).getUserName();
     	%>
     	
         <!-- pur-list-style.css에다 삽입하면 오류가 발생할까봐 따로 style tag 안에 작성-->
@@ -93,7 +97,7 @@
 	           <div class="second-part">
 	               <span class="title">배송지 정보</span>
 	               <div class="user-info-part">
-	                   <span>수령인 : <%=itemDto.getItemName() %></span>
+	                   <span>수령인 : <%=userName %></span>
 	                   <span>주소</span>
 	                   <fieldset class="address-form">
                                <input id="postal-code" name="postal_code" type="text" placeholder="우편주소"/>
