@@ -92,6 +92,10 @@
 	margin-bottom: 20px;
 }
 
+.purchase .item-info .item-img {
+	width: 100%;
+	height: 80px;
+}
 .purchase .second-part span,
 .purchase .third-part label {
 	margin-bottom: 10px;
@@ -219,8 +223,8 @@
 
 .shop-cart .cart-list .item-list img {
     border: 1px solid black;
-    width: 120px;
-    height: 120px;
+    width: 135px;
+    height: 135px;
     margin-right: 20px;
 }
 
@@ -229,14 +233,18 @@
     border: 1px solid black;   /* border ���깆�� ������ 蹂닿린���� test (異��� ������ 寃�)*/
     padding: 10px 0px 10px 25px;
 }
+.shop-cart .cart-list .info .date {
+	margin-bottom: 3px;
+}
 
 .shop-cart .cart-list .info .name {
-    font-size: 25px;
-    margin-bottom: 15px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .shop-cart .cart-list .info .size-color,
-.shop-cart .partition .info .price {
+.shop-cart .cart-list .info .price {
     font-size: 15px;
     margin-bottom: 5px;
 }
