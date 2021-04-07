@@ -52,7 +52,6 @@
 	                    <input id="count" name="count" type="number" min="1", max="99", value="1"/>
 	                </li>
 	                <li>
-	                    <!-- 배송비는 고정으로 가죠..ㅎㅎ 좋습니닼ㅋㅋ-->
 	                    <span>배송비</span>
 	                    <span class="value">2,500</span>
 	                </li>
@@ -61,11 +60,12 @@
 	            <!-- shopping cart 정상 수행 - 해당 상품을 장바구니에 담았습니다.
 	                 shopping cart 정상 수행X - 잘못된 접근입니다. -->
 	            <div class="btns-wrap">
-		            <button class="cartBtn">Shopping Cart</button>
+		            <button class="cartBtn" type="submit" onclick="javascript: form.action='<%=url5%>/addToCartAction.do?itemCode=<%=itemDto.getItemCode()%>';">Shopping Cart</button>
 		            <button type="submit" class="buyBtn"> Buy Now</a>
 	            </div>
 	        </div>
         </form>
+       
     </section>
     <%@include file="../footer.jsp" %>
   </body>

@@ -32,21 +32,47 @@ public class ShopCartDAO {
 		}
 	}
 	
-	
-	public int addShopCart(int itemCode, String ID,  String folderName) {
-		String SQL = "INSERT INTO shopping_cart VALUES(?,?,NOW(),?)";
+	public boolean checkItem_In_ShopCart(String ID, int itemCode) {
+		String SQL = "SELECT * FROM shopping_cart WHERE ID = ? AND itemCode = ?";
+
+
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, itemCode);
-			pstmt.setString(2, ID);
-			pstmt.setString(3, "folderName"); // 일단 예시(추후 수정 필요 할 수도 있음)
-			return pstmt.executeUpdate();
+			pstmt.setString(1, ID);
+			pstmt.setInt(2, itemCode);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+
+	
+	
+	public int addShopCart(int itemCode, String ID, String folderName) {
+		String SQL = "INSERT INTO shopping_cart VALUES(?,?,NOW(),?)";
+		
+		try {
+			if (checkItem_In_ShopCart(ID, itemCode)) { //장바구니에 중복된 상품이 없으면
+				pstmt = conn.prepareStatement(SQL);
+				pstmt.setInt(1, itemCode);
+				pstmt.setString(2, ID);
+				pstmt.setString(3, "folderName"); // 일단 예시(추후 수정 필요 할 수도 있음)
+				return pstmt.executeUpdate();
+			}
+			else {
+				return -1; //이미 추가한 상품
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return -1; // DB오류
+		return -2; // DB오류
 
 	}
 

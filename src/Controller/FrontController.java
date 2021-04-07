@@ -57,7 +57,7 @@ public class FrontController extends HttpServlet {
 			viewPage = "find/findID.jsp";
 		} else if (com.contains("/findPassword.do")) {
 			viewPage = "find/findPassword.jsp";
-		} else if (com.contains("/findInfoAction.do")) {
+		} else if (com.contains("/findInfoAction.do")) { //ID or 비밀번호 찾기 버튼 클릭 시
 			viewPage = "../findInfoAction";
 		} else if (com.contains("/category_skinAction.do")) {
 			viewPage = "../category_skinAction";
@@ -65,8 +65,10 @@ public class FrontController extends HttpServlet {
 			viewPage = "../purchaseAction";
 		} else if (com.contains("/purchaseListAction.do")) { //구매내역 목록 이동 시
 			viewPage = "../purchaseListAction";
-		}else if (com.contains("/shopCartAction.do")) {
+		}else if (com.contains("/shopCartAction.do")) { // 장바구니 목록 보여주기
 			viewPage = "../shopCartAction";
+		}else if (com.contains("/addToCartAction.do")) { //장바구니 추가 버튼 클릭시 
+			viewPage = "../addToCartAction";
 		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
