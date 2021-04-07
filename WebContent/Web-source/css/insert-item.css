@@ -1,0 +1,128 @@
+@charset "EUC-KR";
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--header-back);
+}
+
+
+.insert-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 400px;
+	height: fit-content;
+	background-color: #ffffff;
+	padding: 30px;
+}
+
+.insert-item .main-page {
+	font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.insert-item .title {
+	display: block;
+	text-align: center;
+	font-size: 25px;
+	margin: 25px 0px;
+}
+
+.insert-item form {
+	display: flex;
+	flex-direction: column;
+	align-items: 
+}
+
+.insert-item div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.insert-item label {
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.insert-item input {
+    height: 30px;
+    font-size: 17px;
+    padding-left: 10px;
+}
+
+.insert-item input:not( div > div > input):focus,
+.insert-item select:focus {
+    outline: none;
+    border: 2px solid var(--header-back);
+    height: 30px;
+}
+
+.insert-item select {
+    width: 100px;
+    height: 30px;
+    font-size: 17px;
+}
+
+.insert-item #item-price {
+	width: 150px;
+}
+
+.insert-item #item-color {
+	width: 120px;
+}
+
+.insert-item .image div {
+	display: flex;
+	flex-direction: row;
+}
+
+.insert-item span.item-img {
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+
+.insert-item .imgBtn {
+	cursor: pointer;
+	padding: 7px;
+	font-size: 15px;
+	background-color: var(--header-back);
+	border: 1px solid gray;
+	width: fit-content;
+	margin-right: 10px;
+}
+
+.insert-item input#item-img {
+	display: none;
+}
+
+.insert-item .imgBtn:hover {
+	background-color: var(--navbar-back);
+}
+
+.insert-item .img-path:focus {
+	outline: none;
+}
+.insert-item .image div {
+	margin-bottom: 0px;
+}
+.insert-item .alert {
+	font-size: 15px;
+}
+
+.insert-item .sendBtn {
+	padding: 10px 20px;
+	width: fit-content;
+	margin: 0px auto;
+}
+
+.insert-item .sendBtn:hover {
+	background-color: var(--navbar-back);
+}
