@@ -10,6 +10,7 @@
   <head>
     <%@include file="../head-file.jsp" %>
     <link rel="stylesheet" href="<%=url4 %>/css/aside-style.css" /> 
+    <script src="./js/aside-function.js" defer></script>
     <title>Bag</title>
   </head> 
   <body>
