@@ -93,4 +93,71 @@ public class ItemDAO {
 
 	}
 
+	public int getNext() {
+		String SQL = "SELECT itemCode FROM item ORDER BY itemCode DESC";
+
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1) + 1;
+			}
+			return 1; // 첫번째 게시물인 경우
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; // DB오류
+
+	}
+
+	// write
+	public int insertItem(String itemName, String itemPrice, String itemColor, String itemSize, String main_cate,
+			String sub_cate) {
+		String SQL = "INSERT INTO item VALUES (?,?,?,?,?,?,?,?)";
+
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, getNext());
+			pstmt.setString(2, itemName);
+			pstmt.setString(3, itemPrice);
+			pstmt.setString(4, itemColor);
+			pstmt.setString(5, itemSize);
+			pstmt.setString(6, main_cate);
+			pstmt.setString(7, sub_cate);
+			pstmt.setString(8, "필요시 삭제");
+
+			return pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; // DB오류
+
+	}
+
+	// Image file upload
+	public int upload(String itemCode, String fileName, String fileRealName) {
+		String SQL = "INSERT INTO file VALUES(?,?,?)";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, itemCode);
+			pstmt.setString(2, fileName);
+			pstmt.setString(3, fileRealName);
+			return pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return -1;
+	}
+
 }

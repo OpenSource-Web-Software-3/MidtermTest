@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter"%> 
+<% String url8 = request.getContextPath()+"/Web-source"; %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,10 +11,26 @@
 	   <title>Insert Item Page</title>
 	</head>
 	<body>
+	
+		<%
+			String userID = null;
+		    if(session.getAttribute("userID")!=null){
+		        userID = (String) session.getAttribute("userID");
+		    }
+		    
+		    if(userID == null){
+		        PrintWriter script = response.getWriter();
+		        script.println("<script>");
+		        script.println("alert('로그인을 해주세요')");
+		        script.println("location.href='login.jsp';");
+		        script.println("</script>");
+		    }
+		%>
+		
 	   <section class="insert-item">
 	       <a href="index.do" class="main-page">CROSS SHOPPING</a>
 	       <span class="title">등록할 상품의 정보 입력</span>
-	       <form action="" class="insert-form">
+	       <form method="POST" action="insertItemAction.do" enctype = "multipart/form-data" class="insert-form">
 	           <!-- 등록할 아이템 이름 -->
 	           <div class="name">
                    <label for="item-name">상품 이름</label>
@@ -74,7 +92,7 @@
 	               </div>
 	           </div>
 	           
-	           <button class="sendBtn">입력 완료</button>
+	           <button type="submit" class="sendBtn">입력 완료</button>
 	       </form>
 	   </section>
 	</body>

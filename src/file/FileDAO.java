@@ -30,11 +30,12 @@ public class FileDAO {
 		}
 	}
 
-	public int upload(int bbsID, String fileName, String fileRealName) { // 나중에 실데이터 삽입 시 DB에 편하게 업로드하기 위한 메소드
-		String SQL = "INSERT INTO file VALUES(null, ?,?,?)";
+	//파일 업로드 함수
+	public int upload(int itemCode, String fileName, String fileRealName) { 
+		String SQL = "INSERT INTO file VALUES(?,?,?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, bbsID);
+			pstmt.setInt(1, itemCode);
 			pstmt.setString(2, fileName);
 			pstmt.setString(3, fileRealName);
 			return pstmt.executeUpdate();
