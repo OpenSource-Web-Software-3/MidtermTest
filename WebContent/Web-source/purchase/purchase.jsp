@@ -78,10 +78,7 @@
 	                   </tr>
 	                   <tr>
 	                       <!-- 해당 부분도 추후에 DB값 불러와서 사용 -->
-	                       <!-- <td><img src="" alt="" class="item-img" /></td> -->
-	                       <!-- DB에서 가져온 이미지 경로 인데 이미지 사이즈가 커서 다 깨져버리네요! 주석처리 해놓겠습니다.------------------------------- -->
-	                       		<td><img src="${pageContext.request.contextPath}/itemFile/<%=itemImageFile %>" alt="" class="item-img" /></td>
-	                        
+	                       <td><img src="${pageContext.request.contextPath}/itemFile/<%=itemImageFile %>" alt="" class="item-img" /></td>
 	                       <td><span><%=itemDto.getItemName() %></br><%=itemDto.getItemColor() %> / <%=itemDto.getItemSize() %></span></td>
 	                       <td><%=count %>개</td>
 	                       <td>2,500</td>
