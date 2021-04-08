@@ -55,8 +55,7 @@
 		                  <a href="<%=url8 %>/category/item-info.jsp?itemCode=<%=itemList.get(i).getItemCode() %>" class="link">
 		                     <img src="${pageContext.request.contextPath}/itemFile/<%=itemImageList.get(i) %>" alt="" class="img" />
 		                     <div class="info">
-		                          <!-- 여기 장바구니에 담은 날짜를 불러와주세요..ㅎ -->
-		                         <span class="date">2021.04.08</span>
+		                         <span class="date"><%=shopCartList.get(i).getAddDate() %></span>
 		                         <span class="name"><%=itemList.get(i).getItemName() %></span>
 		                         <span class="size-color">색상 : <%=itemList.get(i).getItemColor() %> / 사이즈 : <%=itemList.get(i).getItemSize() %></span>
 		                         <span class="price">가격 : <%=itemList.get(i).getItemPrice() %></span>

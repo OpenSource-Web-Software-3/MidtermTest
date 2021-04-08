@@ -69,6 +69,8 @@ public class FrontController extends HttpServlet {
 			viewPage = "../shopCartAction";
 		}else if (com.contains("/addToCartAction.do")) { //장바구니 추가 버튼 클릭시 
 			viewPage = "../addToCartAction";
+		}else if (com.contains("/insertItemAction.do")) { //상품 추가 시 
+			viewPage = "../insertItemAction";
 		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
