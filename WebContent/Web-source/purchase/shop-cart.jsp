@@ -13,6 +13,7 @@
         <%@include file="../head-file.jsp" %>
         <link rel="stylesheet" href="<%=url8 %>/css/aside-style.css" />
         <link rel="stylesheet" href="<%=url8 %>/css/pur-list-style.css" />
+        <script src="<%=url8 %>/js/aside-function.js" defer></script>
     <title>Shop Cart</title>
     </head>
     <body>
