@@ -39,21 +39,32 @@ let asideCheckbox = document.querySelectorAll('.second-cate input');
 for(let i=0;i<asideCheckbox.length; i++) {
 	//이 부분이 checkbox가 클릭되었는지 확인하는 eventListener입니다.
 	//check가 되면 아래의 arrow function을 실행하게 됩니다!
-	asideCheckbox[i].addEventListener('checked', () => {
+	//alert(asideCheckbox[i].getAttribute('id'));
+	asideCheckbox[i].addEventListener('click', () => {
 		//checkbox가 체크되면 실행되는 statement (아래 코드는 제가 시도했다가 안되서 남겨놓은 코드입니다..ㅎㅎ)
 		let checkSubCate = asideCheckbox[i].getAttribute('id');
 		
+		alert(document.querySelectorAll('.category-item')); 
+					
 		if (document.querySelector('.category-item')){
-			let itemlist = document.querySelectorALL('.category-item');
-			
+			let itemlist = document.querySelectorAll('.category-item'); 
 			for(let i=0;i<itemlist.length; i++) {
 				if(!itemlist[i].getAttribute('class').includes(checkSubCate)){
 					itemlist[i].classList.toggle('active');
 				}
+ 					/*
+					//초기상태 모두 active 
+					
+				     			MTM  shirts T-shirst   active on = 1, actvie off = 0
+					초기상태 		 1		1		1
+					MTM체크	     1 	    0       0       	 
+	MTM체크 상태에서 + shirts체크     0      0       1
+	
+					*/					
 			}
 		}
 		else if(document.querySelector('.item-list')) {
-			let itemlist2 = document.querySelectorALL('.item-list');
+			let itemlist2 = document.querySelectorAll('.item-list');
 			
 			for(let i=0;i<itemlist2.length; i++) {
 				if(!itemlist2[i].getAttribute('class').includes(checkSubCate)){
