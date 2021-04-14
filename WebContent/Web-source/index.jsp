@@ -5,6 +5,7 @@
 <%@ page import="file.FileDAO"%>
 <%@ page import="java.util.ArrayList"%>    
 <% String url4 = request.getContextPath()+"/Web-source"; %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,26 +52,25 @@
       <span class="mew-item-text">✨이번에 새로 등록된 상품들을 만나보시고, 마음에 드는 상품을 빨리 가져가세요!✨</span>
       <!-- 추후에 DB에 있는 마지막 4개의 item 정보를 가져와서 사용 
             필요 정보 : 해당 items의 URL, 사진,
-      -->
-     
- 	  <%
-      	ItemDAO itemDao = new ItemDAO();
-		FileDAO fileDao = new FileDAO();      
-		
-      	ArrayList <ItemDTO> itemList = itemDao.getItemList(4);
-      %>
-      <ul class="new-item-list">
+      --> 
       <%
-      	for(int i = 0; i<itemList.size(); i++){
-      %>
-       	<li>
-          <a href="<%=url4%>/category/item-info.jsp?itemCode=<%=itemList.get(i).getItemCode()%>">
-            <img src="${pageContext.request.contextPath}/itemFile/<%=fileDao.getFilePath(itemList.get(i).getItemCode()) %>" alt="" class="items" />
-          </a>
-        </li>
-      <% 
-      	}
-      %>
+	        ItemDAO itemDao = new ItemDAO();
+	        FileDAO fileDao = new FileDAO();      
+	        
+	        ArrayList <ItemDTO> itemList = itemDao.getItemList(4);
+	      %>
+	      <ul class="new-item-list">
+	      <%
+	        for(int i = 0; i<itemList.size(); i++){
+	      %>
+	        <li>
+	          <a href="<%=url4%>/category/item-info.jsp?itemCode=<%=itemList.get(i).getItemCode()%>">
+	            <img src="${pageContext.request.contextPath}/itemFile/<%=fileDao.getFilePath(itemList.get(i).getItemCode()) %>" alt="" class="items" />
+	          </a>
+	        </li>
+	      <% 
+	        }
+	      %>
       </ul>
     </section>
     <!-- right-banner -->

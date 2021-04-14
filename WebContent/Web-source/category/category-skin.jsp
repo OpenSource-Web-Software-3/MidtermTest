@@ -4,14 +4,12 @@
 <%@ page import="item.ItemDAO"%>
 <%@ page import="item.ItemDTO"%>
 <%@ page import="java.util.ArrayList"%>    
-<% String url3 = request.getContextPath(); %>
 <% String url4 = request.getContextPath()+"/Web-source"; %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <%@include file="../head-file.jsp" %>
     <link rel="stylesheet" href="<%=url4 %>/css/aside-style.css" /> 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="./js/aside-function.js" defer></script>
     <title>Bag</title>
   </head> 
@@ -28,6 +26,12 @@
 		if(request.getParameter("main_cate") != null){
 			main_cate = request.getParameter("main_cate");
 		}
+		
+		/* 이런식으로 sub_cate를 불러와서 -> go to 55 line
+		if(request.getParameter("sub_cate") != null){
+            sub_cate = request.getParameter("sub_cate");
+        }*/
+    
     
 	    ArrayList<ItemDTO> itemList = new ArrayList<>();
 		if(request.getAttribute("itemList") != null){
@@ -42,17 +46,17 @@
     
     <section class="main-section sub-section set-margin">
       <div class="category-name"><%= main_cate %></div>
-      <ul class="category-item-list <%=main_cate%>" id="category-item-list">
+      <ul class="category-item-list bag">
        
        <%
        		for(int i = 0; i < itemList.size(); i++){
        %>
                 <!-- 여기에 sub_cate를 붙여서 체크된 sub_cate의 이름과 비교해서, 일치하는 sub_cate를 class이름으로 가지고 있는 li만 보이게 하고 싶었습니다. -->	
-		        <li class="category-item <%=main_cate%> <%=itemList.get(i).getSub_cate() %> active">
+		        <li class="category-item <%=main_cate%> pants active">
 		          <a class="link" href="<%=url4%>/category/item-info.jsp?itemCode=<%=itemList.get(i).getItemCode()%>">
 		            <img class="item-img" src="${pageContext.request.contextPath}/itemFile/<%=itemImageList.get(i) %>" alt="" />
 		          </a>
-		          <div class="item-info <%=main_cate%>">
+		          <div class="item-info bag">
 		            <span class="name"><%=itemList.get(i).getItemName() %></span>
 		            <span class="price"><%=itemList.get(i).getItemPrice() %></span>
 		          </div>
