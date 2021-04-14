@@ -27,12 +27,12 @@ ul {
   list-style: none;
 }
 
-button {	
-	border: none;
+button {    
+    border: none;
 }
 
 button:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 button:focus {    
@@ -40,16 +40,16 @@ button:focus {
 }
 
 .set-margin {
-  width: 60%;
+  width: 65%;
   margin: 0px auto;
 }
 
 /* 사용자 지정 css 속성*/
 /* header*/
 .header {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   /*background-color: var(--header-back);*/
   width: 100%;
   height: 90px;
@@ -83,14 +83,14 @@ button:focus {
 
 .navbar {
     height: 50px;
-	border-top: 1px solid gray;
-	border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
 }
 
 .navbar .set-margin {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .navbar .item-ul,
 .navbar .user-ul {
@@ -99,20 +99,20 @@ button:focus {
 }
 
 .navbar .item-ul {
-	width: 65%;
-	margin-right: 5%;
+    width: 65%;
+    margin-right: 5%;
 }
 
 .navbar .user-ul{
-	width: 30%;
+    width: 30%;
 }
 
 .navbar .item-menu {
-	padding: 10px;
+    padding: 10px;
 }
 
 .navbar .user-menu {
-	padding: 10px 7px;
+    padding: 10px 7px;
 }
 .navbar .item-menu {
   font-size: 20px;
@@ -124,59 +124,73 @@ button:focus {
 
 .navbar .item-menu:hover,
 .navbar .user-menu:hover {
-	background-color: var(--navbar-back);
+    background-color: var(--navbar-back);
 }
 
 /* main-section */
 .main-section {
+    position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 30px;
-  height: 900px;
+  height: fit-content;
+}
+.right-banner img {
+    display: none;
+}
+
+.right-banner.active img{
+    display: block;
+    position: fixed;
+    top: 137px;
+    right: 40px;
+    width: 200px;
+    height: 600px;
+    margin-top: 35px;
 }
 
 /* banner */
 .main-section .banner-slide,
 .main-section .banner-slide .list {
-	width: 100%;
-	height: 500px;
-	margin-top: 0px;
-	padding: 0px;
+    width: 100%;
+    height: 500px;
+    margin-top: 0px;
+    padding: 0px;
 }
 
 .main-section .banner-slide {
-	position: relative;
+    position: relative;
     margin-bottom: 30px;
 }
 
 .main-section .banner-slide .list {
-	position: absolute;
+    position: absolute;
 }
 
 .main-section .banner-slide li,
 .main-section .banner {
-	position: absolute;
-	width: 100%;
+    position: absolute;
+    width: 100%;
     height: 100%;
 }
 
 .main-section .banner-slide .list li {
-	display: none;
+    display: none;
 }
 
 .main-section .banner-slide li.active{
-	display: block;
+    display: block;
 }
 
 .main-section .btn-wrap {
-	position: absolute;
-	width: 100%;
-	height: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 .main-section .btn-wrap button {
-	position: absolute;
+    position: absolute;
     background: none;
     top: 50%;
     color: gray;
@@ -184,40 +198,70 @@ button:focus {
     cursor: pointer;
 }
 .main-section .btn-wrap button.left {
-	left: 2%;
+    left: 2%;
 }
 .main-section .btn-wrap button.right {
-	left:95%;
+    left:95%;
 }
 
 /* indicator */
 .main-section .indicate {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	position: absolute;
-	top: 90%;
-	width: 100%;
-	height: 20px;
-	margin: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    height: 20px;
+    margin: 0px;
 }
 
 .main-section .indicate li {
-	position: relative;
-	width: 15px;
-	height: 15px;
-	border-radius: 10px;
-	background-color: var(--border-color);
-	border: 1px solid var(--border-color);
-	margin: 0px 5px;
-	cursor: pointer;
+    position: relative;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: var(--border-color);
+    border: 1px solid var(--border-color);
+    margin: 0px 5px;
+    cursor: pointer;
 }
 
 .main-section .indicate li.active {
-	background-color: white;
+    background-color: white;
+}
+
+.main-section .introduce {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 40px;
+}
+
+.main-section .introduce .title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.main-section .introduce .content {
+    display: block;
+    text-align: center;
+}
+
+.main-section .introduce .process {
+    width: 100%;
+    height: 470px;
 }
 
 .main-section .new-items-text {
+    padding: 20px 0px;
   font-size: 30px;
 }
 
@@ -226,7 +270,7 @@ button:focus {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  height: 250px;
+  height: 257px;
   width: 100%;
 }
 
@@ -242,7 +286,7 @@ button:focus {
 
 /* sub-section */
 .sub-section {
-	position: relative;
+    position: relative;
     height: fit-content;
 }
 
@@ -256,14 +300,17 @@ button:focus {
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  margin-: auto;
   flex-wrap: wrap;
 }
 
 .sub-section .category-item {
+  display: block;
   width: 300px;
   height: 400px;
   margin-bottom: 50px;
+  margin-right: 7px;
   border: 1px solid black; /* 추후에 삭제할 것*/
 }
 
@@ -289,4 +336,84 @@ footer {
   height: 200px;
   border-top: 1px solid gray;
   /*background-color: var(--footer-back);*/
+}
+
+.navbar .fa-bars,
+.more-right-btn .fa-chevron-left {
+    display: none;
+}
+
+/* 1차 변환*/
+@media screen and (max-width: 1420px) {
+    .set-margin {
+       width: 95%;
+    }
+    .right-banner.active img {
+       top: 155px;
+    }
+    .more-right-btn {
+       position: fixed;
+        bottom: 100px;
+        background-color: var(--header-back);
+        padding: 15px;
+        right: 0px;
+    }
+    
+    .more-right-btn .fas.fa-chevron-left {
+       display: inline;
+       font-size: 30px;
+       color: white;
+    }
+}
+
+/* 2차 변환*/
+@media screen and (max-width: 1060px) {
+    .navbar div {
+       display: flex;
+       flex-direction: row;
+       justify-content: flex-end !important;
+       align-items: center;
+    }
+    
+    .navbar .item-ul, 
+    .navbar .user-ul {
+       display: none;
+    }
+    .navbar .fa-bars {
+       display: inline;
+       margin-right: 10px;
+       font-size: 20px;
+    }
+    
+    .main-section .new-item-list {
+       justify-content: space-around;
+       height: fit-content;
+    }
+    
+    .main-section .new-item-list li {
+       width: 34%;
+        height: 330px;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .banner-slide,
+    .banner-slide .list {
+       height: 300px !important; 
+    }
+    
+    .main-section .btn-wrap button.right {
+        left: 90%;
+    }
+    
+    .main-section .introduce .process {
+        height: 320px;
+    }
+    
+    .main-section .new-item-list li {
+       width: 50%;
+        height: 330px;
+        margin-bottom: 25px;
+    }
 }
