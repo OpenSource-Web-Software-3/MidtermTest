@@ -1,8 +1,10 @@
 @charset "EUC-KR";
 .category-aside {
   position: absolute;
-  left: 100px;
+  padding: 5px 10px;
+  left: 80px;
   top: 200px;
+  background-color: var(--navbar-back);
 }
 
 .category-aside ul:not(.second-cate) {
