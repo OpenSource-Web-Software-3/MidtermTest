@@ -80,13 +80,7 @@
                    <select name="sub_cate" id="sub-cate">
                    </select>
 	           </div>
-	           <!-- 등록할 아이템의 소개 -->
-	           <div class="content">
-	               <label for="content">상품 소개 내용</label>
-	               <textarea id="content" name="itemContent">
-	               </textarea>
-	           </div>
-	           <!-- 등록할 상품의 이미지 -->
+	           
 	           <div class="image">
 	               <span class="item-img">상품 사진</span>
 	               <div>
