@@ -20,7 +20,9 @@
     <!-- google font를 사용하기 위한 link -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 
     <!-- js -->
-    <script src="./js/main.js" defer></script>
-    <script src="./js/moblie-mode.js" defer></script>
+    <script src="<%=url %>/js/main.js" defer></script>
+    <script src="<%=url %>/js/moblie-mode.js" defer></script>
