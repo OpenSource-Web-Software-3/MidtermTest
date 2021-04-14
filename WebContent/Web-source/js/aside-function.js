@@ -15,7 +15,7 @@ if (document.querySelector('span.page-title')) {
 else {
 	// 현재 클릭해서 들어와있는 main-cate를 알아내는 line
 	let selectedMain = document.querySelector('.sub-section .category-name').innerText;
-
+	
 	// 클릭한  main-cate을 비교해서 해당하는 aside 보여주기
 	if (selectedMain === 'TOP') {
 		aside.querySelector('.top').style.display = 'block';
@@ -52,7 +52,7 @@ for(let i=0;i<asideCheckbox.length; i++) {
 			for(let i=0;i<itemlist.length; i++) {
 				if(!itemlist[i].getAttribute('class').includes(checkSubCate)){
 					itemlist[i].classList.toggle('active');
-				}
+				}	
 			}
 		}
 		else if(document.querySelector('.item-list')) {
@@ -67,7 +67,7 @@ for(let i=0;i<asideCheckbox.length; i++) {
 	});
 }
 
- ------------------------------------------------------------*/
+ ----------------------------------------------------------------------------------*/
 
 
 /*AJAX js version*/
@@ -178,7 +178,6 @@ function getContextPath(){
 	return contextPath;
 }
 */
-
 
 
 
