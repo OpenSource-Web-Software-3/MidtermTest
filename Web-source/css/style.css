@@ -5,6 +5,8 @@
   --navbar-back: #b3e5fc;
   --section-back: ;
   --footer-back: #b3e5fc;
+  --border-color: #e0e0e0;
+  --accent-color: #f44336;
 }
 
 html,
@@ -25,17 +27,32 @@ ul {
   list-style: none;
 }
 
+button {    
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:focus {    
+    outline: none;
+}
+
 .set-margin {
-  width: 60%;
+  width: 65%;
   margin: 0px auto;
 }
 
 /* 사용자 지정 css 속성*/
 /* header*/
 .header {
-  background-color: var(--header-back);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  /*background-color: var(--header-back);*/
   width: 100%;
-  height: 100px;
+  height: 90px;
 }
 
 .header a {
@@ -47,11 +64,13 @@ ul {
 
 .header i {
   margin-right: 20px;
-  font-size: 100px;
+  font-size: 25px;
 }
 
 .header .logo-name {
-  font-size: 50px;
+  font-family: 'Roboto', sans-serif; 
+  font-size: 40px;
+  font-weight: 700;
 }
 
 /* navbar */
@@ -59,43 +78,190 @@ ul {
 .navbar ul {
   display: flex;
   flex-direction: row;
-  background-color: var(--navbar-back);
+  /*background-color: var(--navbar-back);*/
 }
 
-.navbar ul {
+.navbar {
+    height: 50px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+.navbar .set-margin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.navbar .item-ul,
+.navbar .user-ul {
   justify-content: space-between;
   align-items: center;
 }
 
-.navbar ul li {
-  margin-left: 20px;
-  font-size: 20px;
+.navbar .item-ul {
+    width: 65%;
+    margin-right: 5%;
+}
+
+.navbar .user-ul{
+    width: 30%;
 }
 
 .navbar .item-menu {
-  font-size: 25px;
+    padding: 10px;
 }
 
 .navbar .user-menu {
+    padding: 10px 7px;
+}
+.navbar .item-menu {
   font-size: 20px;
+}
+
+.navbar .user-menu {
+  font-size: 15px;
+}
+
+.navbar .item-menu:hover,
+.navbar .user-menu:hover {
+    background-color: var(--navbar-back);
 }
 
 /* main-section */
 .main-section {
+    position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 30px;
-  height: 900px;
+  height: fit-content;
+}
+.right-banner img {
+    display: none;
 }
 
+.right-banner.active img{
+    display: block;
+    position: fixed;
+    top: 137px;
+    right: 40px;
+    width: 200px;
+    height: 600px;
+    margin-top: 35px;
+}
+
+/* banner */
+.main-section .banner-slide,
+.main-section .banner-slide .list {
+    width: 100%;
+    height: 500px;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+.main-section .banner-slide {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.main-section .banner-slide .list {
+    position: absolute;
+}
+
+.main-section .banner-slide li,
 .main-section .banner {
-  width: 100%;
-  height: 500px;
-  margin-bottom: 30px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.main-section .banner-slide .list li {
+    display: none;
+}
+
+.main-section .banner-slide li.active{
+    display: block;
+}
+
+.main-section .btn-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.main-section .btn-wrap button {
+    position: absolute;
+    background: none;
+    top: 50%;
+    color: gray;
+    font-size: 40px;
+    cursor: pointer;
+}
+.main-section .btn-wrap button.left {
+    left: 2%;
+}
+.main-section .btn-wrap button.right {
+    left:95%;
+}
+
+/* indicator */
+.main-section .indicate {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    height: 20px;
+    margin: 0px;
+}
+
+.main-section .indicate li {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: var(--border-color);
+    border: 1px solid var(--border-color);
+    margin: 0px 5px;
+    cursor: pointer;
+}
+
+.main-section .indicate li.active {
+    background-color: white;
+}
+
+.main-section .introduce {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 40px;
+}
+
+.main-section .introduce .title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.main-section .introduce .content {
+    display: block;
+    text-align: center;
+}
+
+.main-section .introduce .process {
+    width: 100%;
+    height: 470px;
 }
 
 .main-section .new-items-text {
+    padding: 20px 0px;
   font-size: 30px;
 }
 
@@ -104,7 +270,7 @@ ul {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  height: 250px;
+  height: 257px;
   width: 100%;
 }
 
@@ -120,7 +286,7 @@ ul {
 
 /* sub-section */
 .sub-section {
-	position: relative;
+    position: relative;
     height: fit-content;
 }
 
@@ -134,21 +300,24 @@ ul {
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  margin-: auto;
   flex-wrap: wrap;
 }
 
 .sub-section .category-item {
-  width: 350px;
-  height: 500px;
+  display: block;
+  width: 300px;
+  height: 400px;
   margin-bottom: 50px;
+  margin-right: 7px;
   border: 1px solid black; /* 추후에 삭제할 것*/
 }
 
 .sub-section .category-item .link,
 .sub-section .category-item .item-img {
   width: 100%;
-  height: 400px;
+  height: 320px;
 }
 
 .sub-section .category-item .item-info {
@@ -156,7 +325,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 80px;
   width: 100%;
   font-size: 20px;
   font-weight: bold;
@@ -165,5 +334,86 @@ ul {
 footer {
   width: 100%;
   height: 200px;
-  background-color: var(--footer-back);
+  border-top: 1px solid gray;
+  /*background-color: var(--footer-back);*/
+}
+
+.navbar .fa-bars,
+.more-right-btn .fa-chevron-left {
+    display: none;
+}
+
+/* 1차 변환*/
+@media screen and (max-width: 1420px) {
+    .set-margin {
+       width: 95%;
+    }
+    .right-banner.active img {
+       top: 155px;
+    }
+    .more-right-btn {
+       position: fixed;
+        bottom: 100px;
+        background-color: var(--header-back);
+        padding: 15px;
+        right: 0px;
+    }
+    
+    .more-right-btn .fas.fa-chevron-left {
+       display: inline;
+       font-size: 30px;
+       color: white;
+    }
+}
+
+/* 2차 변환*/
+@media screen and (max-width: 1060px) {
+    .navbar div {
+       display: flex;
+       flex-direction: row;
+       justify-content: flex-end !important;
+       align-items: center;
+    }
+    
+    .navbar .item-ul, 
+    .navbar .user-ul {
+       display: none;
+    }
+    .navbar .fa-bars {
+       display: inline;
+       margin-right: 10px;
+       font-size: 20px;
+    }
+    
+    .main-section .new-item-list {
+       justify-content: space-around;
+       height: fit-content;
+    }
+    
+    .main-section .new-item-list li {
+       width: 34%;
+        height: 330px;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .banner-slide,
+    .banner-slide .list {
+       height: 300px !important; 
+    }
+    
+    .main-section .btn-wrap button.right {
+        left: 90%;
+    }
+    
+    .main-section .introduce .process {
+        height: 320px;
+    }
+    
+    .main-section .new-item-list li {
+       width: 50%;
+        height: 330px;
+        margin-bottom: 25px;
+    }
 }
