@@ -23,4 +23,3 @@
 
     <!-- js -->
     <script src="./js/main.js" defer></script>
-    <script src="./js/moblie-mode.js" defer></script>

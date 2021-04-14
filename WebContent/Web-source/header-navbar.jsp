@@ -3,7 +3,7 @@
     
 <!-- web-source까지의 절대 경로 --> 
 <% String url2 = request.getContextPath()+"/Web-source"; %>
-    
+
     <!-- 쇼핑페이지 header -->
     <header class="header">
       <div class="set-margin">
@@ -16,7 +16,6 @@
     <!-- navbar : 각 부류 & 로그인, 회원가입, 장바구니, 구매내역-->
     <navbar class="navbar">
       <div class="set-margin">
-        <i class="fas fa-bars"></i>
         <ul class="item-ul">
           <li class="item-menu">
             <a href="<%=url2 %>/category_skinAction.do?main_cate=TOP">TOP</a>

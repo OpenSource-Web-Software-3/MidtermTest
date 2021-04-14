@@ -4,18 +4,21 @@
 <%@ page import="item.ItemDAO"%>
 <%@ page import="item.ItemDTO"%>
 <%@ page import="java.util.ArrayList"%>    
+<% String url3 = request.getContextPath(); %>
 <% String url4 = request.getContextPath()+"/Web-source"; %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <%@include file="../head-file.jsp" %>
     <link rel="stylesheet" href="<%=url4 %>/css/aside-style.css" /> 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="./js/aside-function.js" defer></script>
     <title>Bag</title>
   </head> 
   <body>
     <%@include file="../header-navbar.jsp" %>
     <%@include file="../aside.jsp" %>
+
     <!-- sub-section 시작 : 
       main-section의 css속성을 그대로 가져오고, 
       sub-section으로 main-seciton selector 구분
@@ -38,9 +41,10 @@
 		}
     %>
     
+    
     <section class="main-section sub-section set-margin">
       <div class="category-name"><%= main_cate %></div>
-      <ul class="category-item-list <%=main_cate%>">
+      <ul class="category-item-list <%=main_cate%>" id="category-item-list">
        
        <%
        		for(int i = 0; i < itemList.size(); i++){
@@ -61,13 +65,6 @@
 
       </ul>
     </section>
-    <!-- right-banner -->
-    <a class="right-banner active" href="insert-item.jsp">
-        <img src="./image/banner/right-banner.png" alt=""  />
-    </a>
-    <button class="more-right-btn">
-        <i class="fas fa-chevron-left"></i>
-    </button>
     <%@include file="../footer.jsp" %>
   </body>
 </html>
