@@ -14,6 +14,12 @@ body {
   margin: 0px;
   width: 100%;
   height: 100%;
+  overflow-X: hidden;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+html {
+    overflow-Y: hidden;
 }
 
 /* 공통적으로 적용할 css 속성 - 주로 html tag*/
@@ -60,6 +66,7 @@ button:focus {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  width: fit-content;
 }
 
 .header i {
@@ -83,8 +90,11 @@ button:focus {
 
 .navbar {
     height: 50px;
+    display: flex;
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .navbar .set-margin {
@@ -339,7 +349,8 @@ footer {
 }
 
 .navbar .fa-bars,
-.more-right-btn .fa-chevron-left {
+.more-right-btn .fa-chevron-left,
+.asideBtn {
     display: none;
 }
 
@@ -364,25 +375,89 @@ footer {
        font-size: 30px;
        color: white;
     }
+    
+    .asideBtn {
+        display: block;
+        position: fixed;
+        top: 200px;
+        padding: 15px;
+        font-size: 30px;
+        background-color: var(--navbar-back);
+        z-index: 4;
+    }
+    
+    .category-aside,
+    .background {
+        display: none;
+    }
+    
+    .category-aside.active {
+        display: flex;
+        flex-direction: column;
+        max-height: 516px;
+        overflow-Y: scroll;
+        z-index: 4;
+    }
+    
+    .category-aside.active::-webkit-scrollbar {
+        width: 3px;
+    }
+    
+    .category-aside.active::-webkit-scrollbar-thumb {
+        width: 3px;
+        background-color: var(--header-back);
+    }
+    
+    .background.active {
+        top:0px;
+        display: block;
+        position: fixed;
+        background-color: #000000b3;
+        width: 100%;
+        height: 100%;
+        z-index:3;
+    }
 }
 
 /* 2차 변환*/
 @media screen and (max-width: 1060px) {
-    .navbar div {
-       display: flex;
-       flex-direction: row;
-       justify-content: flex-end !important;
-       align-items: center;
-    }
-    
-    .navbar .item-ul, 
-    .navbar .user-ul {
+    .navbar .set-margin {
        display: none;
     }
+    
+    .navbar .set-margin.active {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        flex-direction: column;
+       justify-content: center;
+       z-index: 5;
+       background-color: white;
+       border-bottom: 1px solid gray;
+    }
+    
+    .navbar .item-ul,
+    .navbar .user-ul {
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0px;
+    }
+    
+    .item-ul li,
+    .user-ul  li {
+        width: 98%;
+        text-align: center;
+    }
+    
     .navbar .fa-bars {
        display: inline;
-       margin-right: 10px;
+       margin-right: 23px;
+       margin-top: 15px;
        font-size: 20px;
+       cursor: pointer;
+       z-index: 6;
     }
     
     .main-section .new-item-list {
@@ -394,6 +469,32 @@ footer {
        width: 34%;
         height: 330px;
         margin-bottom: 25px;
+    }
+    
+    .item-info .wrap .item-image {
+        width: 40%;
+    }
+    
+    .item-info .wrap form {
+        width: 43%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .item-info.set-margin .wrap{
+       flex-direction: column;
+       justify-content: center;
+       align-text: center;
+    }
+    
+    .item-info .wrap .item-image {
+       margin-right: 0px !important;
+       margin-bottom: 30px;
+       width: 60%;
+    }
+    
+    .item-info .wrap form {
+        width: 60%;
     }
 }
 
@@ -415,5 +516,20 @@ footer {
        width: 50%;
         height: 330px;
         margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .item-info .wrap .item-image {
+       width: 70%;
+    }
+    
+    .item-info .wrap form {
+        width: 86%;
+    }
+    
+    .purchase-list .partition .item-list {  
+        margin: 10px auto;
+        padding: 0px !important;
     }
 }

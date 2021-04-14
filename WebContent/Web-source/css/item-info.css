@@ -1,33 +1,41 @@
 @charset "EUC-KR";
 
-.item-info {
+.item-info .title {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.item-info .wrap{
     /* width: 50%; */
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     /* flex-wrap: wrap; */
-    padding: 100px 0px;
+    padding: 35px 0px;
 }
 
 .item-info span {
     display: block;
 }
 
+.item-info .title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom:  20px;
+}
+
 .item-info .item-image {
     width: 35%;
     height: 400px;
+    background-color: yellow;
+    margin-right: 5%;
 }
 
 .item-info form {
-    width: 35%;
+    width: 40%;
     min-height: 400px;
     height: fit-content;
-}
-
-.item-info .item-image {
-    background-color: yellow;
-    margin-right: 5%;
 }
 
 .item-info .info {

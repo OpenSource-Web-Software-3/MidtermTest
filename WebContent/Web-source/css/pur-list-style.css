@@ -1,5 +1,5 @@
 @charset "EUC-KR";
-/* 援щℓ ���댁� */
+/* �좎럥�띰옙�븐꽫 占쎌쥙猷욑옙�용쐻占쎈뜄�랃옙醫묒삕 */
 .purchase {
     display: flex;
     flex-direction: column;
@@ -11,58 +11,58 @@
 }
 
 .purchase span {
-	display: block;
+    display: block;
 }
 
 .purchase form {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     align-items: center;
 }
 
 .purchase fieldset {
-	display: flex;
-	flex-direction: column;
-	margin: 0px;
-	border: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    border: none;
 }
 
 .purchase input {
-	width: 90%;
-	height: 35px;
-	font-size: 15px;
-	padding: 0px 10px;
-	margin-bottom: 10px;
-	border: 1px solid var(--border-color);
-	border-radius: 0px;
-	outline: none;
+    width: 90%;
+    height: 35px;
+    font-size: 15px;
+    padding: 0px 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 0px;
+    outline: none;
 }
 
 .purchase input::placeholder {
-	color: var(--border-color);
+    color: var(--border-color);
 }
 
 .purchase input:focus {
-	outline: none;
-	border: 1px solid var(--header-back);
+    outline: none;
+    border: 1px solid var(--header-back);
 }
 
 .purchase .first-part,
 .purchase .second-part,
 .purchase .third-part {
-	width: 100%;
+    width: 100%;
 }
 
 .purchase .first-part .title,
 .purchase .second-part .title,
 .purchase .third-part .title {
-	width: 96%;
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom : 15px;
-	border-bottom :1px solid var(--border-color);
-	padding: 5px 10px; 
+    width: 96%;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom : 15px;
+    border-bottom :1px solid var(--border-color);
+    padding: 5px 10px; 
 }
 
 .purchase .first-part .title {
@@ -74,124 +74,127 @@
 .purchase .first-part .item-info,
 .purchase .second-part .user-info-part,
 .purchase .third-part fieldset {
-	width: 100%;
-	padding: 0px 20px;
+    width: 100%;
+    padding: 0px 20px;
 }
 
 .purchase .item-info .row1 td {
-	border-bottom: 1px solid gray;
-	padding-bottom: 5px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 5px;
 }
 
 .purchase .item-info td {
-	text-align: center;
-	
+    text-align: center;
+    
 }
 
 .purchase .item-info {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .purchase .item-info .item-img {
-	width: 100%;
-	height: 80px;
+    width: 100%;
+    height: 80px;
 }
 .purchase .second-part span,
 .purchase .third-part label {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .purchase .address-form #postal-code {
-	text-align: center;
-	width: 100px;
+    text-align: center;
+    width: 100px;
 }
 
 .purchase .third-part #card-company {
-	width: 100px;
+    width: 100px;
 }
 
 .purchase .third-part #card-number {
-	width: 200px;
+    width: 200px;
 }
 
 .purchase .card-form input {
-	margin-left: 15px;
+    margin-left: 15px;
 }
 
 .purchase .purchaseBtn {
-	width: 100px;
-	height: 40px;
+    width: 100px;
+    height: 40px;
     margin-top: 15px;
 }
 
 .purchase .purchaseBtn:hover{
-	cursor: pointer;
-	font-weight: bold;
-	
-	background-color: var(--navbar-back);
+    cursor: pointer;
+    font-weight: bold;
+    
+    background-color: var(--navbar-back);
 }
 
 .purchase .purchaseBtn:focus {
-	outline: none;
+    outline: none;
 } 
 
 
 /* purchase-list css */
 .purchase-list span{
-	display: block;
+    display: block;
 }
 .purchase-list .page-title {
-	margin-top: 30px;
-	margin-bottom: 30px;
-	font-size: 40px;
-	width: 100%;
-	text-align: center;
-	font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 40px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
 }
 
 .purchase-list .partition {
-	width: 100%;
+    width: 100%;
 }
 
 .purchase-list .partition .line-box {
-	font-size: 20px;
-	font-weight: bold;
-	padding: 10px;
-	border-bottom: 1px solid var(--border-color);
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .purchase-list .partition .item-list {
-	width: 90%;
-	padding: 10px 40px;
+    width: 90%;
+    padding: 10px 40px;
 }
 
 .purchase-list .partition .item-list a {
-	display: flex;
+    display: flex;
     flex-direction: row;
 }
 
 .purchase-list .partition .item-list img {
-	border: 1px solid black;
-	width: 120px;
-	height: 120px;
-	margin-right: 20px;
+    border: 1px solid black;
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
 }
 
 .purchase-list .partition .item-list .info {
-	width: 85%;
-	border: 1px solid black;   /* border ���깆�� ������ 蹂닿린���� test (異��� ������ 寃�)*/
-	padding: 10px 0px 10px 25px;
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    border: 1px solid black;   /* border 占쎌쥙猷욑옙�용쐻占쎄쑵�ワ옙醫롫짗占쏙옙 占쎌쥙猷욑옙�용쐻占쎌늿�뺧옙醫롫짗占쏙옙 占쎄퀗�쒙옙占쎈뎨�ⓦ끉�뺧옙醫롫짗占쎌눨�앭뜝占� test (�좎럡��占쎌눨�앾옙�덉굲 占쎌쥙猷욑옙�용쐻占쎌늿�뺧옙醫롫짗占쏙옙 占쎈―�쒙옙占�)*/
+    padding: 10px 0px 10px 25px;
+    justify-content: center;
 }
 
 .purchase-list .partition .info .name {
-	font-size: 25px;
-	margin-bottom: 15px;
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
 .purchase-list .partition .info .size-color,
 .purchase-list .partition .info .price {
-	font-size: 15px;
-	margin-bottom: 5px;
+    font-size: 15px;
+    margin-bottom: 5px;
 }
 
 /* shop cart css */
@@ -230,11 +233,11 @@
 
 .shop-cart .cart-list .item-list .info {
     width: 85%;
-    border: 1px solid black;   /* border ���깆�� ������ 蹂닿린���� test (異��� ������ 寃�)*/
+    border: 1px solid black;   /* border 占쎌쥙猷욑옙�용쐻占쎄쑵�ワ옙醫롫짗占쏙옙 占쎌쥙猷욑옙�용쐻占쎌늿�뺧옙醫롫짗占쏙옙 占쎄퀗�쒙옙占쎈뎨�ⓦ끉�뺧옙醫롫짗占쎌눨�앭뜝占� test (�좎럡��占쎌눨�앾옙�덉굲 占쎌쥙猷욑옙�용쐻占쎌늿�뺧옙醫롫짗占쏙옙 占쎈―�쒙옙占�)*/
     padding: 10px 0px 10px 25px;
 }
 .shop-cart .cart-list .info .date {
-	margin-bottom: 3px;
+    margin-bottom: 3px;
 }
 
 .shop-cart .cart-list .info .name {
