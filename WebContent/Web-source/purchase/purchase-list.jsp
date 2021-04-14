@@ -78,6 +78,13 @@
 		    	}
       		%>
 	   </section>
+	   <!-- right-banner -->
+	    <a class="right-banner active" href="insert-item.jsp">
+	        <img src="./image/banner/right-banner.png" alt=""  />
+	    </a>
+	    <button class="more-right-btn">
+	        <i class="fas fa-chevron-left"></i>
+	    </button>
 	   <%@include file="../footer.jsp" %>
 	</body>
 </html>

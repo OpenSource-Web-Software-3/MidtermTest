@@ -16,7 +16,6 @@
   <body>
     <%@include file="../header-navbar.jsp" %>
     <%@include file="../aside.jsp" %>
-
     <!-- sub-section 시작 : 
       main-section의 css속성을 그대로 가져오고, 
       sub-section으로 main-seciton selector 구분
@@ -68,6 +67,13 @@
 
       </ul>
     </section>
+    <!-- right-banner -->
+    <a class="right-banner active" href="insert-item.jsp">
+        <img src="./image/banner/right-banner.png" alt=""  />
+    </a>
+    <button class="more-right-btn">
+        <i class="fas fa-chevron-left"></i>
+    </button>
     <%@include file="../footer.jsp" %>
   </body>
 </html>

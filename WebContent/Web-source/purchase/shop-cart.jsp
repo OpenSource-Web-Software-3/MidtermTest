@@ -43,7 +43,6 @@
         <!-- insert header 및 navbar file -->
         <%@include file="../header-navbar.jsp" %>
         <%@include file="../aside.jsp" %>
-        
         <!-- 본문 시작하는 부분 -->
        <section class="shop-cart set-margin">
            <span class="page-title">Shop Cart</span>
@@ -69,6 +68,13 @@
            %>
            
        </section>
+       <!-- right-banner -->
+	    <a class="right-banner active" href="insert-item.jsp">
+	        <img src="./image/banner/right-banner.png" alt=""  />
+	    </a>
+	    <button class="more-right-btn">
+	        <i class="fas fa-chevron-left"></i>
+	    </button>
        <%@include file="../footer.jsp" %>
     </body>
 </html>
