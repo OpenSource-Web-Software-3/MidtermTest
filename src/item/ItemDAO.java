@@ -93,6 +93,37 @@ public class ItemDAO {
 
 	}
 
+	public ArrayList<ItemDTO> getItemList(int number) {
+
+		String SQL = "SELECT * FROM item ORDER BY itemCode DESC LIMIT ?";
+
+		ArrayList<ItemDTO> list = new ArrayList<ItemDTO>();
+		try {
+			PreparedStatement pstmt = null;
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, number);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				ItemDTO itemDto = new ItemDTO();
+				itemDto.setItemCode(rs.getInt(1));
+				itemDto.setItemName(rs.getString(2));
+				itemDto.setItemPrice(rs.getInt(3));
+				itemDto.setItemColor(rs.getString(4));
+				itemDto.setItemSize(rs.getString(5));
+				itemDto.setMain_cate(rs.getString(6));
+				itemDto.setSub_cate(rs.getString(7));
+				itemDto.setItemContent(rs.getString(8));
+				list.add(itemDto);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+
+	}
+
 	public int getNext() {
 		String SQL = "SELECT itemCode FROM item ORDER BY itemCode DESC";
 
