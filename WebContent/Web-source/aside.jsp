@@ -10,16 +10,16 @@
         <li>
           <ul class="second-cate">
             <li>
-              <input type="checkbox" id="t-shirt" />
-              <label for="t-shirt">T-shirt</label>
+              <input type="checkbox" id="T-Shirts" value="T-Shirts"/>
+              <label for="T-Shirts">T-Shirts</label>
             </li>
             <li>
-              <input type="checkbox" id="shirts" />
-              <label for="shirts">Shirts</label>
+              <input type="checkbox" id="Shirt" value="Shirt"/>
+              <label for="Shirt">Shirts</label>
             </li>
             <li>
-              <input type="checkbox" id="mtm" />
-              <label for="mtm">MTM</label>
+              <input type="checkbox" id="MTM" value="MTM"/>
+              <label for="MTM">MTM</label>
             </li>
           </ul>
         </li>
@@ -33,12 +33,12 @@
         <li>
           <ul class="second-cate">
             <li>
-              <input type="checkbox" id="pants" />
-              <label for="pants">Pants</label>
+              <input type="checkbox" id="Pants" value="Pants"/>
+              <label for="Pants">Pants</label>
             </li>
             <li>
-              <input type="checkbox" id="shorts" />
-              <label for="shorts">Shorts</label>
+              <input type="checkbox" id="Shorts" value="Shorts"/>
+              <label for="Shorts">Shorts</label>
             </li>
           </ul>
         </li>
@@ -52,16 +52,16 @@
         <li>
           <ul class="second-cate">
             <li>
-              <input type="checkbox" id="sandal" />
-              <label for="sandal">Sandal</label>
+              <input type="checkbox" id="Sandal" value="Sandal"/>
+              <label for="Sandal">Sandal</label>
             </li>
             <li>
-              <input type="checkbox" id="running" />
-              <label for="running">Running Shoes</label>
+              <input type="checkbox" id="RunningShoes" value="RunningShoes"/>
+              <label for="RunningShoes">Running Shoes</label>
             </li>
             <li>
-              <input type="checkbox" id="sneakers" />
-              <label for="sneakers">Sneakers</label>
+              <input type="checkbox" id="Sneakers" value="Sneakers"/>
+              <label for="Sneakers">Sneakers</label>
             </li>
           </ul>
         </li>
@@ -75,16 +75,16 @@
         <li>
           <ul class="second-cate">
             <li>
-              <input type="checkbox" id="coat" />
-              <label for="coat">Coat</label>
+              <input type="checkbox" id="Coat" value="Coat"/>
+              <label for="Coat">Coat</label>
             </li>
             <li>
-              <input type="checkbox" id="jacket" />
-              <label for="jacket">Jacket</label>
+              <input type="checkbox" id="Jacket" value="Jacket"/>
+              <label for="Jacket">Jacket</label>
             </li>
             <li>
-              <input type="checkbox" id="cardigan" />
-              <label for="cardigan">Cardigan</label>
+              <input type="checkbox" id="Cardigan" value="Cardigan"/>
+              <label for="Cardigan">Cardigan</label>
             </li>
           </ul>
         </li>
@@ -98,16 +98,16 @@
         <li>
           <ul class="second-cate">
             <li>
-              <input type="checkbox" id="echo" />
-              <label for="echo">Echo bag</label>
+              <input type="checkbox" id="EchoBag" value="EchoBag"/>
+              <label for="EchoBag">Echo bag</label>
             </li>
             <li>
-              <input type="checkbox" id="cross" />
-              <label for="cross">Cross bag</label>
+              <input type="checkbox" id="CrossBag" value="CrossBag"/>
+              <label for="CrossBag">Cross bag</label>
             </li>
             <li>
-              <input type="checkbox" id="backpack" />
-              <label for="backpack">Backpack</label>
+              <input type="checkbox" id="Backpack" value="Backpack"/>
+              <label for="Backpack">Backpack</label>
             </li>
           </ul>
         </li>
