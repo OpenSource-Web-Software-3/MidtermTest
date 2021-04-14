@@ -57,20 +57,22 @@ public class FrontController extends HttpServlet {
 			viewPage = "find/findID.jsp";
 		} else if (com.contains("/findPassword.do")) {
 			viewPage = "find/findPassword.jsp";
-		} else if (com.contains("/findInfoAction.do")) { //ID or 비밀번호 찾기 버튼 클릭 시
+		} else if (com.contains("/findInfoAction.do")) { // ID or 비밀번호 찾기 버튼 클릭 시
 			viewPage = "../findInfoAction";
 		} else if (com.contains("/category_skinAction.do")) {
 			viewPage = "../category_skinAction";
-		} else if (com.contains("/purchaseAction.do")) { //구매하기 버튼
+		} else if (com.contains("/purchaseAction.do")) { // 구매하기 버튼
 			viewPage = "../purchaseAction";
-		} else if (com.contains("/purchaseListAction.do")) { //구매내역 목록 이동 시
+		} else if (com.contains("/purchaseListAction.do")) { // 구매내역 목록 이동 시
 			viewPage = "../purchaseListAction";
-		}else if (com.contains("/shopCartAction.do")) { // 장바구니 목록 보여주기
+		} else if (com.contains("/shopCartAction.do")) { // 장바구니 목록 보여주기
 			viewPage = "../shopCartAction";
-		}else if (com.contains("/addToCartAction.do")) { //장바구니 추가 버튼 클릭시 
+		} else if (com.contains("/addToCartAction.do")) { // 장바구니 추가 버튼 클릭시
 			viewPage = "../addToCartAction";
-		}else if (com.contains("/insertItemAction.do")) { //상품 추가 시 
+		} else if (com.contains("/insertItemAction.do")) { // 상품 추가 시
 			viewPage = "../insertItemAction";
+		} else if (com.contains("/getItemList_to_SubCateAction.do")) { 
+			viewPage = "../getItemList_to_SubCateAction";
 		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
