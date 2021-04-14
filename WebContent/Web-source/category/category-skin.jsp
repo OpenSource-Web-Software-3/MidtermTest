@@ -4,6 +4,7 @@
 <%@ page import="item.ItemDAO"%>
 <%@ page import="item.ItemDTO"%>
 <%@ page import="java.util.ArrayList"%>    
+<% String url3 = request.getContextPath(); %>
 <% String url4 = request.getContextPath()+"/Web-source"; %>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,61 +40,6 @@
 			itemImageList = (ArrayList<String>) request.getAttribute("itemImageList");
 		}
     %>
-    
-<script type="text/javascript">
-	var request = new XMLHttpRequest();  
-		
-	$(".category-aside input").click(function() { //제가 ajax만 알고 DOM용어는 잘 몰라서 바꿔주실 수 있나요 ㅠㅠ??..
-		var sub_cate = [];
-	
-		//체크된 리스트 저장
-		$('input[type="checkbox"]:checked').each(function(i) {
-			sub_cate.push($(this).val());
-		});
-	
-		$.ajax({
-			url : "getItemList_to_SubCateAction.do?main_cate=<%=main_cate%>",
-			type : "POST",
-			traditional : true,
-			data : {
-				sub_cate: sub_cate
-			},
-			success: function(data) {
-	
-				if (data == "") {
-					$('#category-item-list').empty();
-					return; //상품이 한개도 없는경우(이 사이트에선 오류부분)
-				}
-				
-				var parsed = JSON.parse(data);
-				var result = parsed.result;
-				
-				$('#category-item-list').empty();
-				for (var i = 0; i < result.length; i++) {
-					getItemList_to_SubCate(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value);
-				}
-	
-			}
-		});
-	 });
-				
-
-	function getItemList_to_SubCate(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, itemContent, filepath) {
-		
-		filepath = "${pageContext.request.contextPath}"+"/itemFile/"+filepath;
-		$('#category-item-list').append(
-			'<li class="category-item">'
-			+'<a class="link" href="${pageContext.request.contextPath}/Web-source/category/item-info.jsp?itemCode=' + itemCode + '">'
-			+'<img class="item-img" src="'+ filepath + '" alt=""/>'
-			+ '</a>'
-			+ '<div class="item-info">'
-			+ '<span class="name">' + itemName + '</span>'
-			+ '<span class="price">' + itemPrice + '</span>'
-			+ '</div>'
-			+ '</li>');
-	}
-	
-</script>
     
     
     <section class="main-section sub-section set-margin">
