@@ -15,7 +15,7 @@ if (document.querySelector('span.page-title')) {
 else {
 	// 현재 클릭해서 들어와있는 main-cate를 알아내는 line
 	let selectedMain = document.querySelector('.sub-section .category-name').innerText;
-	
+
 	// 클릭한  main-cate을 비교해서 해당하는 aside 보여주기
 	if (selectedMain === 'TOP') {
 		aside.querySelector('.top').style.display = 'block';
@@ -34,6 +34,7 @@ else {
 	}
 }
 
+/*----------------------------------------------------------------------------------------
 let asideCheckbox = document.querySelectorAll('.second-cate input');
 
 for(let i=0;i<asideCheckbox.length; i++) {
@@ -52,15 +53,6 @@ for(let i=0;i<asideCheckbox.length; i++) {
 				if(!itemlist[i].getAttribute('class').includes(checkSubCate)){
 					itemlist[i].classList.toggle('active');
 				}
- 					/*
-					//초기상태 모두 active 
-					
-				     			MTM  shirts T-shirst   active on = 1, actvie off = 0
-					초기상태 		 1		1		1
-					MTM체크	     1 	    0       0       	 
-	MTM체크 상태에서 + shirts체크     0      0       1
-	
-					*/					
 			}
 		}
 		else if(document.querySelector('.item-list')) {
@@ -74,5 +66,121 @@ for(let i=0;i<asideCheckbox.length; i++) {
 		}
 	});
 }
+
+ ------------------------------------------------------------*/
+
+
+/*AJAX js version*/
+var request = new XMLHttpRequest();
+$(document).ready(function() {
+
+	$(".category-aside input").click(function() { //제가 ajax만 알고 DOM용어는 잘 몰라서 바꿔주실 수 있나요 ㅠㅠ??..
+		var checkList = [];
+
+		//체크된 리스트 저장
+		$('input[type="checkbox"]:checked').each(function(i) {
+			checkList.push($(this).val());
+		});
+
+		//ajax 호출 not jquery
+		request.open("POST", "getItemList_to_SubCateAction.do?main_cate="+main_cate+"&sub_cate="+checkList, true); //true 비동기적 false 동기적 진행방식 (저희는 ajax의 기능을 통한 비동기적 방식으로 값을 받을거라 true값을 넣어줬습니다)
+		request.onreadystatechange = getItemList_to_SubCate; //서버에 요청(Request)을 하기에 앞서, 서버로 보낸 요청에 대한 응답을 받았을 때 어떤 동작을 할 것인지 정해야합니다 ->getItemList_to_SubCate지정
+		request.send(null);
+
+	})
+
+});
+
+function getItemList_to_SubCate() {
+
+	var request = new XMLHttpRequest();
+	var categoryAside = document.getElementsByClassName("category-aside");
+		if (request.readyState == 4 && request.status == 200) {
+		var object = eval('(' + request.responseText + ')');
+		alert(request.responseText);
+		var result = object.result;
+				itemList.innerHTML = "";
+		var itemList = document.getElementgetElementById("category-item-list");
+			for (var i = 0; i < itemList.length; i++) {
+			itemList.innerHTML = '<li class="category-item">';
+			itemList.innerHTML = '<a class="link" href="' + request.getContextPath() + '/Web-source/category/item-info.jsp?itemCode='+result[i][0].value+'">';
+			itemList.innerHTML = '<img class="item-img" src="'+request.getContextPath() +'/itemFile/'+result[i][8].value + '" alt=""';
+			itemList.innerHTML = '</a>';
+			itemList.innerHTML = '<div class="item-info">';
+			itemList.innerHTML = '<span class="name">' + result[i][1].value + '</span>';
+			itemList.innerHTML = '<span class="price">' + result[i][2].value + '</span>';
+			itemList.innerHTML = '</div>';
+			itemList.innerHTML = '</li>';
+		}
+	}
+}
+
+
+/* AJAX Jquery version
+var request = new XMLHttpRequest();
+$(document).ready(function() {
+	
+		
+	$(".category-aside input").click(function() { //제가 ajax만 알고 DOM용어는 잘 몰라서 바꿔주실 수 있나요 ㅠㅠ??..
+		var sub_cate = [];
+		var main_cate = $('.category-name').text();
+		//체크된 리스트 저장
+		$('input[type="checkbox"]:checked').each(function(i) {
+			sub_cate.push($(this).val());
+		});
+	
+		$.ajax({
+			url : "getItemList_to_SubCateAction.do?main_cate="+main_cate,
+			type : "POST",
+			traditional : true,
+			data : {
+				sub_cate: sub_cate
+			},
+			success: function(data) {
+	
+				if (data == "") {
+					$('#category-item-list').empty();
+					return; //상품이 한개도 없는경우(이 사이트에선 오류부분)
+				}
+				
+				var parsed = JSON.parse(data);
+				var result = parsed.result;
+				
+				$('#category-item-list').empty();
+				for (var i = 0; i < result.length; i++) {
+					getItemList_to_SubCate(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value);
+				}
+	
+			}
+		});
+	 });
+});
+	
+function getItemList_to_SubCate(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, itemContent, filepath) {
+		
+		filepath = getContextPath()+"/itemFile/"+filepath;
+		
+		$('#category-item-list').append(
+			'<li class="category-item">'
+			+'<a class="link" href="'+getContextPath()+'/Web-source/category/item-info.jsp?itemCode=' + itemCode + '">'
+			+'<img class="item-img" src="'+ filepath + '" alt=""/>'
+			+ '</a>'
+			+ '<div class="item-info">'
+			+ '<span class="name">' + itemName + '</span>'
+			+ '<span class="price">' + itemPrice + '</span>'
+			+ '</div>'
+			+ '</li>');
+	}
+	
+function getContextPath(){
+	var hostIndex = location.href.indexOf(location.host) + location.host.length;
+	var contextPath = location.href.substring(hostIndex, location.href.indexOf('/',hostIndex+1));
+	return contextPath;
+}
+*/
+
+
+
+
 
 

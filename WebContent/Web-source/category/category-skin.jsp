@@ -4,12 +4,14 @@
 <%@ page import="item.ItemDAO"%>
 <%@ page import="item.ItemDTO"%>
 <%@ page import="java.util.ArrayList"%>    
+<% String url3 = request.getContextPath(); %>
 <% String url4 = request.getContextPath()+"/Web-source"; %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <%@include file="../head-file.jsp" %>
     <link rel="stylesheet" href="<%=url4 %>/css/aside-style.css" /> 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="./js/aside-function.js" defer></script>
     <title>Bag</title>
   </head> 
@@ -38,9 +40,10 @@
 		}
     %>
     
+    
     <section class="main-section sub-section set-margin">
       <div class="category-name"><%= main_cate %></div>
-      <ul class="category-item-list <%=main_cate%>">
+      <ul class="category-item-list <%=main_cate%>" id="category-item-list">
        
        <%
        		for(int i = 0; i < itemList.size(); i++){
