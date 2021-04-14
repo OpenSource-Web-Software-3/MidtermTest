@@ -35,7 +35,6 @@ public class getItemList_to_SubCateAction extends HttpServlet {
 		if (request.getParameterValues("sub_cate") != null) {
 			sub_cate = request.getParameterValues("sub_cate");
 		}
-
 		response.getWriter().write(getJSON(sub_cate, main_cate));
 	}
 
