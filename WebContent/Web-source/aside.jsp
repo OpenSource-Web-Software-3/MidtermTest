@@ -10,15 +10,15 @@
         <li>
           <ul class="second-cate">
             <li>
-              <input type="checkbox" id="T-Shirts" value="T-Shirts" />
+              <input type="checkbox" id="T-Shirts" />
               <label for="t-shirt">T-shirt</label>
             </li>
             <li>
-              <input type="checkbox" id="Shirt" value="Shirt" />
+              <input type="checkbox" id="Shirt" />
               <label for="shirts">Shirts</label>
             </li>
             <li>
-              <input type="checkbox" id="MTM" value="MTM"/>
+              <input type="checkbox" id="MTM" />
               <label for="mtm">MTM</label>
             </li>
           </ul>
@@ -33,11 +33,11 @@
         <li>
           <ul class="second-cate">
             <li>
-              <input type="checkbox" id="Pants" value="Pants"/>
+              <input type="checkbox" id="Pants" />
               <label for="pants">Pants</label>
             </li>
             <li>
-              <input type="checkbox" id="Shorts" value="Shorts"/>
+              <input type="checkbox" id="Shorts" />
               <label for="shorts">Shorts</label>
             </li>
           </ul>
@@ -52,15 +52,15 @@
         <li>
           <ul class="second-cate">
             <li>
-              <input type="checkbox" id="Sandal" value="Sandal"/>
+              <input type="checkbox" id="Sandal" />
               <label for="sandal">Sandal</label>
             </li>
             <li>
-              <input type="checkbox" id="RunningShoes" value="RunningShoes"/>
+              <input type="checkbox" id="RunningShoes" />
               <label for="running">Running Shoes</label>
             </li>
             <li>
-              <input type="checkbox" id="Sneakers" value="Sneakers"/>
+              <input type="checkbox" id="Sneakers" />
               <label for="sneakers">Sneakers</label>
             </li>
           </ul>
@@ -75,15 +75,15 @@
         <li>
           <ul class="second-cate">
             <li>
-              <input type="checkbox" id="Coat" value="Coat"/>
+              <input type="checkbox" id="Coat" />
               <label for="coat">Coat</label>
             </li>
             <li>
-              <input type="checkbox" id="Jacket" value="Jacket"/>
+              <input type="checkbox" id="Jacket" />
               <label for="jacket">Jacket</label>
             </li>
             <li>
-              <input type="checkbox" id="Cardigan" value="Cardigan"/>
+              <input type="checkbox" id="Cardigan" />
               <label for="cardigan">Cardigan</label>
             </li>
           </ul>
@@ -98,15 +98,15 @@
         <li>
           <ul class="second-cate">
             <li>
-              <input type="checkbox" id="EchoBag" value="EchoBag"/>
+              <input type="checkbox" id="EchoBag" />
               <label for="echo">Echo bag</label>
             </li>
             <li>
-              <input type="checkbox" id="CrossBag" value="CrossBag"/>
+              <input type="checkbox" id="CrossBag" />
               <label for="cross">Cross bag</label>
             </li>
             <li>
-              <input type="checkbox" id="Backpack" value="Backpack"/>
+              <input type="checkbox" id="Backpack" />
               <label for="backpack">Backpack</label>
             </li>
           </ul>
