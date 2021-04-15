@@ -10,7 +10,8 @@
   <head>
     <%@include file="../head-file.jsp" %>
     <link rel="stylesheet" href="<%=url4 %>/css/aside-style.css" /> 
-    <script src="./js/aside-function.js" defer></script>
+ 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="<%=url4 %>/js/aside-function.js" defer></script>
     <title>Bag</title>
   </head> 
   <body>
@@ -46,7 +47,7 @@
     
     <section class="main-section sub-section set-margin">
       <div class="category-name"><%= main_cate %></div>
-      <ul class="category-item-list bag">
+      <ul class="category-item-list bag" id="category-item-list">
        
        <%
        		for(int i = 0; i < itemList.size(); i++){
