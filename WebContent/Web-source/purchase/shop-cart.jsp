@@ -13,6 +13,7 @@
         <%@include file="../head-file.jsp" %>
         <link rel="stylesheet" href="<%=url8 %>/css/aside-style.css" />
         <link rel="stylesheet" href="<%=url8 %>/css/pur-list-style.css" />
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="<%=url8 %>/js/aside-function.js" defer></script>
     <title>Shop Cart</title>
     </head>
@@ -45,7 +46,7 @@
         <%@include file="../aside.jsp" %>
         <!-- 본문 시작하는 부분 -->
        <section class="shop-cart set-margin">
-           <span class="page-title">Shop Cart</span>
+           <span class="page-title" id="page-title">Shop Cart</span>
            
            <%
            		for(int i = 0; i < shopCartList.size(); i++){
