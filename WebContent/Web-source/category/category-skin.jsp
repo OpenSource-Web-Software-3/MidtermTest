@@ -47,7 +47,7 @@
     
     <section class="main-section sub-section set-margin">
       <div class="category-name"><%= main_cate %></div>
-      <ul class="category-item-list bag">
+      <ul class="category-item-list bag" id="category-item-list">
        
        <%
        		for(int i = 0; i < itemList.size(); i++){

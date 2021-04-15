@@ -137,15 +137,14 @@ $(document).ready(function() {
 	$(".category-aside input").click(function() {
 
 		var sub_cate = [];
-
+		var main_cate = $('.category-name').text();
 		//체크된 리스트 저장
 		$('input[type="checkbox"]:checked').each(function(i) {
 			sub_cate.push($(this).val());
 		});
 
-
 		$.ajax({
-			url: "getItemList_to_SubCateAction.do?main_cate=" + main_cate,
+			url: "getItemList_to_SubCateAction.do?main_cate="+main_cate,
 			type: "POST",
 			traditional: true,
 			data: {
@@ -154,13 +153,17 @@ $(document).ready(function() {
 			success: function(data) {
 
 
-				if (data == "") return; //상품이 한개도 없는경우(이 사이트에선 오류부분)
-
+				if (data == "") {
+					$('#category-item-list').empty();
+					return; //상품이 한개도 없는경우(이 사이트에선 오류부분)
+				}
+				
 				var parsed = JSON.parse(data);
 				var result = parsed.result;
 
 				$('#category-item-list').empty();
 				for (var i = 0; i < result.length; i++) {
+					console.log(result[i][0].value);
 					getItemList_to_SubCate(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value);
 				}
 			}
@@ -173,7 +176,7 @@ $(document).ready(function() {
 
 function getItemList_to_SubCate(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, itemContent, filepath) {
 
-	filepath = getContextPath() + "/itemFile/"  + filepath;
+	filepath = getContextPath() + "/itemFile/" + filepath;
 
 	$('#category-item-list').append(
 		'<li class="category-item">'
