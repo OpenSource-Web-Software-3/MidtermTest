@@ -46,7 +46,7 @@ public class getItemList_to_SubCateAction extends HttpServlet {
 		if (sub_cate.length == 0) { // 체크를 모두 해제했을 경우 모든 리스트 보여주기 main_cate 가져와야함 
 			itemList = itemDao.getItemList(main_cate);
 		}else {
-			itemList = itemDao.getItemList(sub_cate);
+			itemList = itemDao.getItemList(sub_cate, main_cate);
 		}
 
 		// JSON formating

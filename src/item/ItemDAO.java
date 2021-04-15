@@ -126,7 +126,7 @@ public class ItemDAO {
 	}
 
 	// sub_cate 선택시
-	public ArrayList<ItemDTO> getItemList(String[] sub_cate) {
+	public ArrayList<ItemDTO> getItemList(String[] sub_cate, String main_cate) {
 		String sql = "";
 		ArrayList<ItemDTO> list = new ArrayList<ItemDTO>();
 		
@@ -136,11 +136,12 @@ public class ItemDAO {
 			if (sub_cate.length == 0) { // sub_cate를 모두 체크 해제했을 때
 				//servlet에서 오버로딩으로 처리함
 			} else if (sub_cate.length == 1) { //단일 선택 시
-				sql = "SELECT * FROM item WHERE sub_cate In(?) ORDER BY itemCode DESC";
+				sql = "SELECT * FROM item WHERE main_cate = ? AND sub_cate IN(?) ORDER BY itemCode DESC";
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, sub_cate[0]);
+				pstmt.setString(1, main_cate);
+				pstmt.setString(2, sub_cate[0]);
 			} else { //다중 선택 시
-				sql = "SELECT * FROM item WHERE sub_cate IN(";
+				sql = "SELECT * FROM item WHERE main_cate = ? AND sub_cate IN(";
 				for (int i = 0; i < sub_cate.length - 1; i++) {
 					sql += "\'" + sub_cate[i] + "\'" + ", ";
 				}
@@ -148,8 +149,10 @@ public class ItemDAO {
 
 				// SELECT * FROM 테이블명 WHERE 컬럼명 IN(뭐뭐1, 뭐뭐2, 뭐뭐3, 뭐뭐4)ORDER BY 정렬기준 DESC
 				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, main_cate);
+
 			}
-			
+			System.out.println(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				ItemDTO itemDto = new ItemDTO();

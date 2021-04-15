@@ -10,8 +10,8 @@
         <li>
           <ul class="second-cate">
             <li>
-              <input type="checkbox" id="T-Shirts" value="T-Shirts"/>
-              <label for="T-Shirts">T-Shirts</label>
+              <input type="checkbox" id="T-Shirt" value="T-Shirt"/>
+              <label for="T-Shirt">T-Shirts</label>
             </li>
             <li>
               <input type="checkbox" id="Shirt" value="Shirt"/>
