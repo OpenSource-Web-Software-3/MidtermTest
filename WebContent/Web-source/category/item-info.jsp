@@ -39,9 +39,7 @@
 	                <ul class="character">
 	                    <li class="column-special">
 	                       <span>제품 설명</span>
-	                       <div class="content"> 안녕하세요.
-	                       이 부분은 제품을 설명하는 부분입니다.
-	                       추후에  itenContent와 연결해주세요😊 </div>
+	                       <div class="content"><%=itemDto.getItemContent() %></div>
 	                    </li>
 	                    <li>
 	                        <span>가격</span>
