@@ -125,44 +125,6 @@ public class ShopCartDAO {
 		return null;
 	}
 
-//	public ArrayList<ShopCartDTO> getShopCartItem(String ID, ArrayList<ItemDTO> itemCodes) {
-//		ArrayList<String> list = new ArrayList<>();
-//		String sql = "";
-//		try {
-//			PreparedStatement pstmt = null;
-//			
-//			if (itemCodes.size() == 0) { // sub_cate를 모두 체크 해제했을 때
-//				// servlet에서 오버로딩으로 처리함
-//			} else if (itemCodes.size() == 1) { // 단일 선택 시
-//				sql = "SELECT substr(purchaseDate,1,10) FROM purchase_list WHERE ID = ? "
-//						+ "AND itemCode IN() GROUP BY substr(purchaseDate,1,10) ORDER BY purchaseDate DESC";
-//				pstmt = conn.prepareStatement(sql);
-//				pstmt.setString(1, ID);
-//				pstmt.setInt(2, itemCodes.get(0).getItemCode());
-//			} else {
-//
-//				sql = "SELECT substr(purchaseDate,1,10) FROM purchase_list WHERE ID = ? AND itemCode IN(";
-//				for (int i = 0; i < itemCodes.size() - 1; i++) {
-//					sql += itemCodes.get(i).getItemCode() + ", ";
-//				}
-//				sql += itemCodes.get(itemCodes.size() - 1) + ") GROUP BY substr(purchaseDate,1,10) ORDER BY purchaseDate DESC";
-//			}
-//
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, ID);
-//			rs = pstmt.executeQuery();
-//
-//			while (rs.next()) {
-//				list.add(rs.getString(1).substring(0, 4) + "." + rs.getString(1).substring(5, 7) + "."
-//						+ rs.getString(1).substring(8, 10));
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return list;
-//	}
-//	
-
 	// 날짜 별로 for문을 돌리기 위해 날짜만 이용해서 group형식으로 가져옴
 	public ArrayList<String> getAddDate(String ID) {
 		String SQL = "SELECT substr(addDate,1,10) FROM shopping_cart WHERE ID = ? GROUP BY substr(addDate,1,10) ORDER BY addDate DESC";
