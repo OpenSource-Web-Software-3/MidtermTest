@@ -237,6 +237,8 @@ function getItemList_to_SubCate2(itemCode, itemName, itemPrice, itemColor, itemS
 }
 
 //purchase
+
+/*
 function getItemList_to_SubCate3(result, date) {
 	
 	for(var i=0; i<date.length; i++){
@@ -265,7 +267,36 @@ function getItemList_to_SubCate3(result, date) {
 		$('#purchase-item-list').append('</div>');
 	}
 }
+*/
 
+function getItemList_to_SubCate3(result, date) {
+	
+	var purchaseList = document.getElementById("purchase-item-list");
+	alert('asfgd');
+	for(var i=0; i<date.length; i++){
+			purchaseList.innerHTML = '<div class="partition '+ (i+1) +'">';
+			purchaseList.innerHTML = '<div class="line-box">'+date[i].value+'</div>';
+		
+		for(var j=0; j<result.length;j++){
+			
+			if(date[i].value != result[j][10].value) continue;
+			
+			var filepath = getContextPath() + "/itemFile/" + result[j][8].value;
+			
+				purchaseList.innerHTML = '<div class="item-list">';
+				purchaseList.innerHTML =  '<a class="link" href="' + getContextPath() + '/Web-source/category/item-info.jsp?itemCode=' + result[j][0].value + '">';
+				purchaseList.innerHTML =  '<img class="img" src="' + filepath + '" alt="" />';
+				purchaseList.innerHTML =  '<div class="info">';
+				purchaseList.innerHTML =  '<span class="name">'+result[j][1].value+'</span>';
+				purchaseList.innerHTML =  '<span class="size-color">'+result[j][3].value+'/'+result[j][4].value+'</span>';
+				purchaseList.innerHTML =  '<span class="price">'+result[j][2].value+'</span>';
+				purchaseList.innerHTML =  '</div>';
+				purchaseList.innerHTML =  '</a>';
+				purchaseList.innerHTML =  '</div>';
+		}
+		purchaseList.innerHTML = '</div>';
+	}
+}
 function getContextPath() {
 	var hostIndex = location.href.indexOf(location.host) + location.host.length;
 	var contextPath = location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));
