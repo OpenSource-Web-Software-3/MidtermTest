@@ -353,7 +353,7 @@ public class ItemDAO {
 
 	// write
 	public int insertItem(String itemName, String itemPrice, String itemColor, String itemSize, String main_cate,
-			String sub_cate) {
+			String sub_cate, String itemContent) {
 		String SQL = "INSERT INTO item VALUES (?,?,?,?,?,?,?,?)";
 
 		try {
@@ -365,7 +365,7 @@ public class ItemDAO {
 			pstmt.setString(5, itemSize);
 			pstmt.setString(6, main_cate);
 			pstmt.setString(7, sub_cate);
-			pstmt.setString(8, "필요시 삭제");
+			pstmt.setString(8, itemContent);
 
 			return pstmt.executeUpdate();
 

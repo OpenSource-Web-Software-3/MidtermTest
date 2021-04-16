@@ -47,8 +47,10 @@ public class insertItemAction extends HttpServlet {
 		String itemPrice = (String) multipartRequest.getParameter("itemPrice");
 		String itemColor = (String) multipartRequest.getParameter("itemColor");
 		String itemSize = (String) multipartRequest.getParameter("itemSize");
+		String itemContent = (String) multipartRequest.getParameter("itemContent");
 		String main_cate = (String) multipartRequest.getParameter("main_cate");
 		String sub_cate = (String) multipartRequest.getParameter("sub_cate");
+		
 		
 		
 		String userID = null;
@@ -74,7 +76,7 @@ public class insertItemAction extends HttpServlet {
 				deleteFileFunction(multipartRequest, directory);
 			} else {
 				ItemDAO itemDao = new ItemDAO();
-				int result = itemDao.insertItem(itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate);
+				int result = itemDao.insertItem(itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, itemContent);
 				
 				if (result == -1) {
 					PrintWriter script = response.getWriter();
