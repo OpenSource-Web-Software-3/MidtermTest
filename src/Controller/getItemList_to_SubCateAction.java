@@ -70,17 +70,14 @@ public class getItemList_to_SubCateAction extends HttpServlet {
 
 		ItemDAO itemDao = new ItemDAO();
 
-		System.out.println("page Title : " + pageTitle);
-		System.out.println("main_categorySkin : " + main_cateOfcategorySkin);
-
 		if (sub_cate.length == 0) { // 체크를 모두 해제했을 경우 모든 리스트 보여주기 main_cate 가져와야함
-			if (main_cateOfcategorySkin != null) { // category-skin.jsp에서의 호출일 경우
+			if (main_cateOfcategorySkin != null && !main_cateOfcategorySkin.equals("")) { // category-skin.jsp에서의 호출일 경우
 				itemList = itemDao.getItemList(main_cateOfcategorySkin);
 			} else if (pageTitle != null && pageTitle.equals("Purchase List")) { // Purchase List에서의 호출일 경우
 				purchaseList = new PurchaseListDAO().getPurchaseItem(userID);
 				for (int i = 0; i < purchaseList.size(); i++)
 					itemList.add(new ItemDAO().getItem(purchaseList.get(i).getItemCode()));
-				purchaseDateList = new PurchaseListDAO().getPurchaseDate(userID, itemList);
+				purchaseDateList = new PurchaseListDAO().getPurchaseDate(userID);
 			} else if (pageTitle != null && pageTitle.equals("Shop Cart")) { // Shop Cart에서의 호출일 경우
 				shopCartList = new ShopCartDAO().getShopCartItem(userID);
 				for (int i = 0; i < shopCartList.size(); i++)
@@ -92,33 +89,26 @@ public class getItemList_to_SubCateAction extends HttpServlet {
 			if (main_cateOfcategorySkin != null && !main_cateOfcategorySkin.equals("")) {
 				itemList = itemDao.getItemList(sub_cate, main_cate);
 			} else if (pageTitle != null && pageTitle.equals("Purchase List")) {
+				
 				purchaseList = new PurchaseListDAO().getPurchaseItem(userID); // 해당 아이디의 장바구니 목록을 모두 가져온다
 
-				System.out.println("purchaseList iszeo : " + purchaseList.size()); //해당되지 않는 item remove
 				for (int i = purchaseList.size() - 1; i >= 0 ; i--) {
 					if (itemDao.getItem(sub_cate, main_cate, purchaseList.get(i).getItemCode()) == null) {
 						purchaseList.remove(i);
 					}
 				}
 				
-				System.out.println("list Item : " + itemList.size());
-				System.out.println("purchaseList iszeo (after) : " + purchaseList.size());
+				// 해당되는 item저장
+				for (int i = 0; i < purchaseList.size(); i++) itemList.add(new ItemDAO().getItem(purchaseList.get(i).getItemCode()));
 				
-				for (int i = 0; i < purchaseList.size(); i++) { // 해당되는 item저장
-					itemList.add(new ItemDAO().getItem(purchaseList.get(i).getItemCode()));
-				}
-				
-				if (itemList.size() != 0) {
-					purchaseDateList = new PurchaseListDAO().getPurchaseDate(userID, itemList);
-				}
-
-				
+				//item이 있다면 해당 날짜 그룹화해서 가져오기
+				if (itemList.size() != 0) purchaseDateList = new PurchaseListDAO().getPurchaseDate(userID, itemList);
 
 			} else if (pageTitle != null && pageTitle.equals("Shop Cart")) {
 				shopCartList = new ShopCartDAO().getShopCartItem(userID); // 해당 아이디의 장바구니 목록을 모두 가져온다
 				for (int i = 0; i < shopCartList.size(); i++) { // 그중에 sub,main cate에 해당하는 것만 가져온다
-					if (new ItemDAO().getItem(sub_cate, main_cate, shopCartList.get(i).getItemCode()) != null) {
-						itemList.add(new ItemDAO().getItem(sub_cate, main_cate, shopCartList.get(i).getItemCode()));
+					if (itemDao.getItem(sub_cate, main_cate, shopCartList.get(i).getItemCode()) != null) {
+						itemList.add(itemDao.getItem(sub_cate, main_cate, shopCartList.get(i).getItemCode()));
 					}
 				}
 				shopCartList.clear();
@@ -139,10 +129,6 @@ public class getItemList_to_SubCateAction extends HttpServlet {
 		if (itemList.size() == 0) { // sub_cate에 해당하는 item이 하나도 없는 경우
 			return "";
 		}
-
-		System.out.println("itemList size : " + itemList.size());
-		System.out.println("shopcart List size : " + shopCartList.size());
-		System.out.println("purchaseList size : " + purchaseList.size());
 
 		for (int i = 0; i < itemList.size(); i++) {
 			String itemImagePathList = new FileDAO().getFilePath(itemList.get(i).getItemCode());
@@ -193,7 +179,6 @@ public class getItemList_to_SubCateAction extends HttpServlet {
 		else
 			result.append("], \"flag\":\"category-skin\"}"); // category-skin.jsp
 
-		System.out.println(result);
 		return result.toString();
 
 	}

@@ -141,10 +141,6 @@ $(document).ready(function() {
 		var main_cateOfcategorySkin = $('.category-name').text(); //category-skin.jsp
 		var pageTitle = $('#page-title').text(); //purchase List.jsp or shopchart
 
-		//		var main_cate = $('#T-Shirt').closest('ul').closest('ul');
-		//alert(main_cate.val());
-		//alert($('.category-aside').parent()[0].className);		
-
 		//체크된 리스트 저장
 		$('input[type="checkbox"]:checked').each(function(i) {
 			main_cate.push($($(this).parent().parent().parent().parent())[0].className); //main_cate목록 저장 (좀 이상하긴 한데... 잘몰라서 일단 써놨습니다 ㅎㅎㅎ)
@@ -169,7 +165,7 @@ $(document).ready(function() {
 					$('#shopCart-item').empty();
 					$('#purchase-item-list').empty();
 
-					return; //상품이 한개도 없는경우(이 사이트에선 오류부분)
+					return; //상품이 한개도 없는경우
 				}
 
 				var parsed = JSON.parse(data);
@@ -191,9 +187,6 @@ $(document).ready(function() {
 				}
 				else if (flag == "Purchase List") {
 					$('#purchase-item-list').empty();
-					//for (var i = 0; i < date.length; i++) {
-						//getItemList_to_SubCate3(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value, result[i][9].value, result[i][10].value, result[i][11].value, result[i][12].value, result[i][13].value, data[i].value);
-					//}
 					getItemList_to_SubCate3(result, date);
 				}
 				else alert('Ajax Error!');
@@ -248,12 +241,10 @@ function getItemList_to_SubCate3(result, date) {
 	
 	for(var i=0; i<date.length; i++){
 		$('#purchase-item-list').append(
-			'<div class="partition '+i+'">'
+			'<div class="partition '+ (i+1) +'">'
 			+ '<div class="line-box">'+date[i].value+'</div>');
 		
 		for(var j=0; j<result.length;j++){
-			//alert("1번쨰 date value " + date[i].value);
-			//alert("1번쨰 result 10번째 날짜 date value " + result[j][10].value);
 			
 			if(date[i].value != result[j][10].value) continue;
 			

@@ -59,11 +59,11 @@ public class ItemDAO {
 	
 	//AJAX shopcartList & purchase
 	public ItemDTO getItem(String[] sub_cate, String [] main_cate, int itemCode) {
-		System.out.println("-------------------------");
-		System.out.println(main_cate[0]);
-		System.out.println(sub_cate[0]);
-		System.out.println(itemCode);
-		System.out.println("-------------------------");
+//		System.out.println("-------------------------");
+//		System.out.println(main_cate[0]);
+//		System.out.println(sub_cate[0]);
+//		System.out.println(itemCode);
+//		System.out.println("-------------------------");
 		String sql = "";
 		try {
 			PreparedStatement pstmt = null;
@@ -93,7 +93,6 @@ public class ItemDAO {
 				pstmt.setInt(1, itemCode);
 		
 			}
-			System.out.println(sql);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				ItemDTO itemDto = new ItemDTO();
@@ -256,7 +255,6 @@ public class ItemDAO {
 				pstmt = conn.prepareStatement(sql);
 		
 			}
-			System.out.println(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				ItemDTO itemDto = new ItemDTO();
