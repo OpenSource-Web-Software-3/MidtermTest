@@ -4,11 +4,11 @@ let aside = document.querySelector('.category-aside');
 
 //장바구니 or 구매내역을 클릭했을 때 실행
 if (document.querySelector('span.page-title')) {
-	aside.querySelector('.top').style.display = 'block';
-	aside.querySelector('.bottom').style.display = 'block';
-	aside.querySelector('.shoes').style.display = 'block';
-	aside.querySelector('.outer').style.display = 'block';
-	aside.querySelector('.bag').style.display = 'block';
+	aside.querySelector('.TOP').style.display = 'block';
+	aside.querySelector('.Bottom').style.display = 'block';
+	aside.querySelector('.Shoes').style.display = 'block';
+	aside.querySelector('.Outer').style.display = 'block';
+	aside.querySelector('.Bag').style.display = 'block';
 }
 
 // main-cate를 클릭했을 때
@@ -18,19 +18,19 @@ else {
 
 	// 클릭한  main-cate을 비교해서 해당하는 aside 보여주기
 	if (selectedMain === 'TOP') {
-		aside.querySelector('.top').style.display = 'block';
+		aside.querySelector('.TOP').style.display = 'block';
 	}
 	else if (selectedMain === 'Bottom') {
-		aside.querySelector('.bottom').style.display = 'block';
+		aside.querySelector('.Bottom').style.display = 'block';
 	}
 	else if (selectedMain === 'Shoes') {
-		aside.querySelector('.shoes').style.display = 'block';
+		aside.querySelector('.Shoes').style.display = 'block';
 	}
 	else if (selectedMain === 'Outer') {
-		aside.querySelector('.outer').style.display = 'block';
+		aside.querySelector('.Outer').style.display = 'block';
 	}
 	else if (selectedMain === 'Bag') {
-		aside.querySelector('.bag').style.display = 'block';
+		aside.querySelector('.Bag').style.display = 'block';
 	}
 }
 
@@ -137,35 +137,66 @@ $(document).ready(function() {
 	$(".category-aside input").click(function() {
 
 		var sub_cate = [];
-		var main_cate = $('.category-name').text();
+		var main_cate = [];
+		var main_cateOfcategorySkin = $('.category-name').text(); //category-skin.jsp
+		var pageTitle = $('#page-title').text(); //purchase List.jsp or shopchart
+
+		//		var main_cate = $('#T-Shirt').closest('ul').closest('ul');
+		//alert(main_cate.val());
+		//alert($('.category-aside').parent()[0].className);		
+
 		//체크된 리스트 저장
 		$('input[type="checkbox"]:checked').each(function(i) {
+			main_cate.push($($(this).parent().parent().parent().parent())[0].className); //main_cate목록 저장 (좀 이상하긴 한데... 잘몰라서 일단 써놨습니다 ㅎㅎㅎ)
 			sub_cate.push($(this).val());
 		});
 
 		$.ajax({
-			url: "getItemList_to_SubCateAction.do?main_cate="+main_cate,
+			url: "getItemList_to_SubCateAction.do?main_cate=" + main_cate,
 			type: "POST",
 			traditional: true,
 			data: {
-				sub_cate: sub_cate
+				main_cate: main_cate,
+				sub_cate: sub_cate,
+				main_cateOfcategorySkin: main_cateOfcategorySkin, //category-skin
+				pageTitle: pageTitle //purchase or shopCart
 			},
 			success: function(data) {
 
 
 				if (data == "") {
 					$('#category-item-list').empty();
+					$('#shopCart-item').empty();
+					$('#purchase-item-list').empty();
+
 					return; //상품이 한개도 없는경우(이 사이트에선 오류부분)
 				}
-				
+
 				var parsed = JSON.parse(data);
 				var result = parsed.result;
+				var flag = parsed.flag;
+				var date = parsed.date;
 
-				$('#category-item-list').empty();
-				for (var i = 0; i < result.length; i++) {
-					console.log(result[i][0].value);
-					getItemList_to_SubCate(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value);
+				if (flag == "category-skin") {
+					$('#category-item-list').empty();
+					for (var i = 0; i < result.length; i++) {
+						getItemList_to_SubCate1(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value);
+					}
 				}
+				else if (flag == "Shop Cart") {
+					$('#shopCart-item').empty();
+					for (var i = 0; i < result.length; i++) {
+						getItemList_to_SubCate2(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value, result[i][9].value, result[i][10].value, result[i][11].value);
+					}
+				}
+				else if (flag == "Purchase List") {
+					$('#purchase-item-list').empty();
+					//for (var i = 0; i < date.length; i++) {
+						//getItemList_to_SubCate3(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value, result[i][9].value, result[i][10].value, result[i][11].value, result[i][12].value, result[i][13].value, data[i].value);
+					//}
+					getItemList_to_SubCate3(result, date);
+				}
+				else alert('Ajax Error!');
 			}
 		});
 
@@ -174,7 +205,8 @@ $(document).ready(function() {
 });
 
 
-function getItemList_to_SubCate(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, itemContent, filepath) {
+//category-info.jsp
+function getItemList_to_SubCate1(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, itemContent, filepath) {
 
 	filepath = getContextPath() + "/itemFile/" + filepath;
 
@@ -188,6 +220,59 @@ function getItemList_to_SubCate(itemCode, itemName, itemPrice, itemColor, itemSi
 		+ '<span class="price">' + itemPrice + '</span>'
 		+ '</div>'
 		+ '</li>');
+}
+
+
+//shopcart
+function getItemList_to_SubCate2(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, itemContent, filepath, ID, date, folderName) {
+	filepath = getContextPath() + "/itemFile/" + filepath;
+
+	$('#shopCart-item').append(
+		'<div class="cart-list">'
+		+ '<div class="item-list main-cate-name sub-cate-name">'
+		+ '<a class="link" href="' + getContextPath() + '/Web-source/category/item-info.jsp?itemCode=' + itemCode + '">'
+		+ '<img class="img" src="' + filepath + '" alt=""/>'
+		+ '<div class="info">'
+		+ '<span class="date">' + date + '</span>'
+		+ '<span class="name">' + itemName + '</span>'
+		+ '<span class="size-color">색상 : ' + itemColor + '</span>'
+		+ '<span class="price">가격 : ' + itemPrice + '</span>'
+		+ '</div>'
+		+ '</a>'
+		+ '</div>'
+		+ '</div>');
+}
+
+//purchase
+function getItemList_to_SubCate3(result, date) {
+	
+	for(var i=0; i<date.length; i++){
+		$('#purchase-item-list').append(
+			'<div class="partition '+i+'">'
+			+ '<div class="line-box">'+date[i].value+'</div>');
+		
+		for(var j=0; j<result.length;j++){
+			//alert("1번쨰 date value " + date[i].value);
+			//alert("1번쨰 result 10번째 날짜 date value " + result[j][10].value);
+			
+			if(date[i].value != result[j][10].value) continue;
+			
+			var filepath = getContextPath() + "/itemFile/" + result[j][8].value;
+			
+			$('#purchase-item-list').append(
+				'<div class="item-list">'
+				+ '<a class="link" href="' + getContextPath() + '/Web-source/category/item-info.jsp?itemCode=' + result[j][0].value + '">'
+				+ '<img class="img" src="' + filepath + '" alt="" />'
+				+ '<div class="info">'
+				+ '<span class="name">'+result[j][1].value+'</span>'
+				+ '<span class="size-color">'+result[j][3].value+'/'+result[j][4].value+'</span>'
+				+ '<span class="price">'+result[j][2].value+'</span>'
+				+ '</div>'
+				+ '</a>'
+				+ '</div>');
+		}
+		$('#purchase-item-list').append('</div>');
+	}
 }
 
 function getContextPath() {

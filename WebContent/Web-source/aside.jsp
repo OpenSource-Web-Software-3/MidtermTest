@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <aside class="category-aside">
-      <ul class="top">
+      <ul class="TOP">
         <!-- TOP -->
         <li class="first-cate">
           <span>TOP</span>
@@ -10,8 +10,8 @@
         <li>
           <ul class="second-cate">
             <li>
-              <input type="checkbox" id="T-Shirts" value="T-Shirts"/>
-              <label for="T-Shirts">T-Shirts</label>
+              <input type="checkbox" id="T-Shirt" value="T-Shirt"/>
+              <label for="T-Shirt">T-Shirts</label>
             </li>
             <li>
               <input type="checkbox" id="Shirt" value="Shirt"/>
@@ -24,7 +24,7 @@
           </ul>
         </li>
       </ul>
-      <ul class="bottom">
+      <ul class="Bottom">
         <!-- BOTTOM -->
         <li class="first-cate">
           <span>BOTTOM</span>
@@ -43,7 +43,7 @@
           </ul>
         </li>
       </ul>
-      <ul class="shoes">
+      <ul class="Shoes">
         <!-- SHOES -->
         <li class="first-cate">
           <span>SHOES</span>
@@ -66,7 +66,7 @@
           </ul>
         </li>
        </ul>
-       <ul class="outer">
+       <ul class="Outer">
         <!-- OUTER -->
         <li class="first-cate">
           <span>OUTER</span>
@@ -89,7 +89,7 @@
           </ul>
         </li>
       </ul>
-      <ul class="bag">
+      <ul class="Bag">
         <!-- BAG -->
         <li class="first-cate">
           <span>BAG</span>
