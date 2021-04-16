@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import shopCart.ShopCartDTO;
 import util.DBUser;
 
 public class ItemDAO {
@@ -48,6 +49,63 @@ public class ItemDAO {
 				itemDto.setSub_cate(rs.getString(7));
 				itemDto.setItemContent(rs.getString(8));
 
+				return itemDto;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	//AJAX shopcartList & purchase
+	public ItemDTO getItem(String[] sub_cate, String [] main_cate, int itemCode) {
+		System.out.println("-------------------------");
+		System.out.println(main_cate[0]);
+		System.out.println(sub_cate[0]);
+		System.out.println(itemCode);
+		System.out.println("-------------------------");
+		String sql = "";
+		try {
+			PreparedStatement pstmt = null;
+
+			if (sub_cate.length == 0) { 
+				//servlet에서 오버로딩으로 처리함
+			} else if (sub_cate.length == 1) { //단일 선택 시
+				sql = "SELECT * FROM item WHERE main_cate IN(?) AND sub_cate IN(?) AND itemCode = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, main_cate[0]);
+				pstmt.setString(2, sub_cate[0]);
+				pstmt.setInt(3, itemCode);
+			} else { //다중 선택 시
+				
+				sql = "SELECT * FROM item WHERE main_cate IN(";
+				for (int i = 0; i < main_cate.length - 1; i++) {
+					sql += "\'" + main_cate[i] + "\'" + ", ";
+				}
+				sql += "\'" + main_cate[main_cate.length - 1] + "\'" + ") AND sub_cate In(";
+						
+				for (int i = 0; i < sub_cate.length - 1; i++) {
+					sql += "\'" + sub_cate[i] + "\'" + ", ";
+				}
+				sql += "\'" + sub_cate[sub_cate.length - 1] + "\'" + ") AND itemCode = ?";
+
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, itemCode);
+		
+			}
+			System.out.println(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				ItemDTO itemDto = new ItemDTO();
+				itemDto.setItemCode(rs.getInt(1));
+				itemDto.setItemName(rs.getString(2));
+				itemDto.setItemPrice(rs.getInt(3));
+				itemDto.setItemColor(rs.getString(4));
+				itemDto.setItemSize(rs.getString(5));
+				itemDto.setMain_cate(rs.getString(6));
+				itemDto.setSub_cate(rs.getString(7));
+				itemDto.setItemContent(rs.getString(8));
+				
 				return itemDto;
 			}
 		} catch (Exception e) {
@@ -127,6 +185,7 @@ public class ItemDAO {
 
 	}
 	
+	//현재 안쓰이는 함수
 	// Ajax : aside.jsp sub_cate 선택시 -> aside-function.js -> getItemList_to_SubCateAction.java -> this
 	public ArrayList<ItemDTO> getItemList(String []main_cate) {
 		
@@ -196,18 +255,6 @@ public class ItemDAO {
 				// SELECT * FROM 테이블명 WHERE 컬럼명 IN(뭐뭐1, 뭐뭐2, 뭐뭐3, 뭐뭐4)ORDER BY 정렬기준 DESC
 				pstmt = conn.prepareStatement(sql);
 		
-						
-				
-//				sql = "SELECT * FROM item WHERE main_cate = ? AND sub_cate IN(";
-//				for (int i = 0; i < sub_cate.length - 1; i++) {
-//					sql += "\'" + sub_cate[i] + "\'" + ", ";
-//				}
-//				sql += "\'" + sub_cate[sub_cate.length - 1] + "\'" + ") ORDER BY itemCode DESC";
-//
-//				// SELECT * FROM 테이블명 WHERE 컬럼명 IN(뭐뭐1, 뭐뭐2, 뭐뭐3, 뭐뭐4)ORDER BY 정렬기준 DESC
-//				pstmt = conn.prepareStatement(sql);
-//				pstmt.setString(1, main_cate);
-
 			}
 			System.out.println(sql);
 			rs = pstmt.executeQuery();
@@ -231,6 +278,63 @@ public class ItemDAO {
 		return list;
 
 	}
+	
+	
+//	public ArrayList<ItemDTO> getItemList(String[] sub_cate, String[] main_cate, ArrayList<ShopCartDTO> shopCartList ) {
+//		String sql = "";
+//		ArrayList<ItemDTO> list = new ArrayList<ItemDTO>();
+////		select * from item where main_cate In("Bag","Bottom") AND sub_cate In("EchoBag","Pants") 
+////		AND itemCode In(select itemCode from purchase_list where ID = "asf");
+//		try {
+//			PreparedStatement pstmt = null;
+//			
+//			if (sub_cate.length == 0) { // sub_cate를 모두 체크 해제했을 때
+//				//servlet에서 오버로딩으로 처리함
+//			} else if (sub_cate.length == 1) { //단일 선택 시
+//				sql = "SELECT * FROM item WHERE main_cate IN(?) AND sub_cate IN(?) "
+//						+ "AND itemCode IN(select itemCode from shopping_cart where ID = ?)";
+//				pstmt = conn.prepareStatement(sql);
+//				pstmt.setString(1, main_cate[0]);
+//				pstmt.setString(2, sub_cate[0]);
+//				pstmt.setString(3, ID);
+//			} else { //다중 선택 시
+//				sql = "SELECT * FROM item WHERE main_cate IN(";
+//						
+//				for (int i = 0; i < main_cate.length - 1; i++) {
+//					sql += "\'" + main_cate[i] + "\'" + ", ";
+//				}
+//				sql += "\'" + main_cate[main_cate.length - 1] + "\'" + ") AND sub_cate In(";
+//				
+//				for (int i = 0; i < sub_cate.length - 1; i++) {
+//					sql += "\'" + sub_cate[i] + "\'" + ", ";
+//				}
+//				sql += "\'" + sub_cate[sub_cate.length - 1] + "\'" + ") AND itemCode IN(SELECT itemCode FROM shopping_cart WHERE ID = ? ORDER BY addDate DESC)";
+//				
+//				pstmt = conn.prepareStatement(sql);
+//				pstmt.setString(1, ID);
+//			}
+//			System.out.println(sql);
+//			rs = pstmt.executeQuery();
+//			while (rs.next()) {
+//				ItemDTO itemDto = new ItemDTO();
+//				itemDto.setItemCode(rs.getInt(1));
+//				itemDto.setItemName(rs.getString(2));
+//				itemDto.setItemPrice(rs.getInt(3));
+//				itemDto.setItemColor(rs.getString(4));
+//				itemDto.setItemSize(rs.getString(5));
+//				itemDto.setMain_cate(rs.getString(6));
+//				itemDto.setSub_cate(rs.getString(7));
+//				itemDto.setItemContent(rs.getString(8));
+//				list.add(itemDto);
+//				
+//			}
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return list;
+//		
+//	}
 
 	public int getNext() {
 		String SQL = "SELECT itemCode FROM item ORDER BY itemCode DESC";

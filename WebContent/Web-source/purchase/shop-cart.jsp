@@ -48,6 +48,7 @@
        <section class="shop-cart set-margin">
            <span class="page-title" id="page-title">Shop Cart</span>
            
+           <div id="shopCart-item">
            <%
            		for(int i = 0; i < shopCartList.size(); i++){
            %>
@@ -67,6 +68,7 @@
            <%
            		}	
            %>
+           </div>
            
        </section>
        <!-- right-banner -->

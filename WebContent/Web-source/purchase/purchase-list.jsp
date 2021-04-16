@@ -50,7 +50,7 @@
 	       <!-- 구매이력 날짜를 기준으로 partition 생성 
 	            - 추후에 DB에 있는 정보를 이용하여 반복 생성할 것 
 	              + 나중에 class에 main-cate와 sub-cate를 작성해야 함-->
-	       
+	       <div id="purchase-item-list">
 	       	<%
 		    	for(int i = 0; i < purchaseDate.size(); i++){
 			%>
@@ -78,6 +78,7 @@
 		    <% 		
 		    	}
       		%>
+      		</div>
 	   </section>
 	   <!-- right-banner -->
 	    <a class="right-banner active" href="insert-item.jsp">

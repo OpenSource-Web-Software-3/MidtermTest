@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import item.ItemDTO;
+import shopCart.ShopCartDTO;
 import util.DBUser;
 
 public class PurchaseListDAO {
@@ -61,7 +62,7 @@ public class PurchaseListDAO {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, ID);
 			rs = pstmt.executeQuery();
-
+   
 			while (rs.next()) {
 				PurchaseListDTO purchaseListDto = new PurchaseListDTO();
 				purchaseListDto.setItemCode(rs.getInt(1));
@@ -80,32 +81,39 @@ public class PurchaseListDAO {
 	}
 
 	// 구매내역에서 aside의 checkbox ajax 호출시 실행되는 함수
-	public ArrayList<PurchaseListDTO> getPurchaseItem(String ID, int itemCode) {
-		String SQL = "SELECT * FROM purchase_list WHERE ID = ? AND itemCode = ORDER BY purchaseDate DESC";
+	public PurchaseListDTO getPurchaseItem(int itemCode, String ID) {
+		String SQL = "SELECT * FROM purchase_list WHERE itemCode = ? AND ID = ?";
 
 		ArrayList<PurchaseListDTO> list = new ArrayList<>();
 
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, ID);
+			pstmt.setInt(1, itemCode);
+			pstmt.setString(2, ID);
+
 			rs = pstmt.executeQuery();
 
-			while (rs.next()) {
+			if (rs.next()) {
 				PurchaseListDTO purchaseListDto = new PurchaseListDTO();
 				purchaseListDto.setItemCode(rs.getInt(1));
 				purchaseListDto.setID(rs.getString(2));
-				purchaseListDto.setPurchaseDate(rs.getString(3).substring(0, 4) + "." + rs.getString(3).substring(5, 7)
-						+ "." + rs.getString(3).substring(8, 10));
+				purchaseListDto.setPurchaseDate(rs.getString(3).substring(0, 4) + "." + rs.getString(3).substring(5, 7) + "."
+						+ rs.getString(3).substring(8, 10));
 				purchaseListDto.setFolderName(rs.getString(4));
 				purchaseListDto.setUserAddress(rs.getString(5));
 				purchaseListDto.setCardNumber(rs.getString(6));
-				list.add(purchaseListDto);
+				return purchaseListDto;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return list;
+		return null;
 	}
+	
+	
+	
+	
+	
 
 	// 날짜 별로 for문을 돌리기 위해 날짜만 이용해서 group형식으로 가져옴
 	public ArrayList<String> getPurchaseDate(String ID) {
@@ -130,6 +138,10 @@ public class PurchaseListDAO {
 	public ArrayList<String> getPurchaseDate(String ID, ArrayList<ItemDTO> itemCodes) {
 		ArrayList<String> list = new ArrayList<>();
 		String sql = "";
+		if (itemCodes.size() == 0) {
+			return null;
+		}
+		
 		try {
 			PreparedStatement pstmt = null;
 			
@@ -137,7 +149,7 @@ public class PurchaseListDAO {
 				// servlet에서 오버로딩으로 처리함
 			} else if (itemCodes.size() == 1) { // 단일 선택 시
 				sql = "SELECT substr(purchaseDate,1,10) FROM purchase_list WHERE ID = ? "
-						+ "AND itemCode IN() GROUP BY substr(purchaseDate,1,10) ORDER BY purchaseDate DESC";
+						+ "AND itemCode IN(?) GROUP BY substr(purchaseDate,1,10) ORDER BY purchaseDate DESC";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, ID);
 				pstmt.setInt(2, itemCodes.get(0).getItemCode());
@@ -147,11 +159,11 @@ public class PurchaseListDAO {
 				for (int i = 0; i < itemCodes.size() - 1; i++) {
 					sql += itemCodes.get(i).getItemCode() + ", ";
 				}
-				sql += itemCodes.get(itemCodes.size() - 1) + ") GROUP BY substr(purchaseDate,1,10) ORDER BY purchaseDate DESC";
+				sql += itemCodes.get(itemCodes.size() - 1).getItemCode() + ") GROUP BY substr(purchaseDate,1,10) ORDER BY purchaseDate DESC";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, ID);
 			}
-
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, ID);
+			System.out.println(sql);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {

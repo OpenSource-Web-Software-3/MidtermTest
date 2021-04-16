@@ -166,6 +166,9 @@ $(document).ready(function() {
 
 				if (data == "") {
 					$('#category-item-list').empty();
+					$('#shopCart-item').empty();
+					$('#purchase-item-list').empty();
+
 					return; //상품이 한개도 없는경우(이 사이트에선 오류부분)
 				}
 
@@ -174,11 +177,25 @@ $(document).ready(function() {
 				var flag = parsed.flag;
 				var date = parsed.date;
 
-				$('#category-item-list').empty();
-
-				if (flag == "category-skin") for (var i = 0; i < result.length; i++) getItemList_to_SubCate(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value);
-				else if (flag == "Shop Cart") for (var i = 0; i < result.length; i++) getItemList_to_SubCate(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value, result[i][9].value, result[i][10].value, result[i][11].value);
-				else if (flag == "Purchase List") for (var i = 0; i < result.length; i++) getItemList_to_SubCate(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value, result[i][9].value, result[i][10].value, result[i][11].value, result[i][12].value, result[i][13].value, data[i].value);
+				if (flag == "category-skin") {
+					$('#category-item-list').empty();
+					for (var i = 0; i < result.length; i++) {
+						getItemList_to_SubCate1(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value);
+					}
+				}
+				else if (flag == "Shop Cart") {
+					$('#shopCart-item').empty();
+					for (var i = 0; i < result.length; i++) {
+						getItemList_to_SubCate2(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value, result[i][9].value, result[i][10].value, result[i][11].value);
+					}
+				}
+				else if (flag == "Purchase List") {
+					$('#purchase-item-list').empty();
+					//for (var i = 0; i < date.length; i++) {
+						//getItemList_to_SubCate3(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value, result[i][9].value, result[i][10].value, result[i][11].value, result[i][12].value, result[i][13].value, data[i].value);
+					//}
+					getItemList_to_SubCate3(result, date);
+				}
 				else alert('Ajax Error!');
 			}
 		});
@@ -188,7 +205,8 @@ $(document).ready(function() {
 });
 
 
-function getItemList_to_SubCate(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, itemContent, filepath) {
+//category-info.jsp
+function getItemList_to_SubCate1(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, itemContent, filepath) {
 
 	filepath = getContextPath() + "/itemFile/" + filepath;
 
@@ -205,37 +223,58 @@ function getItemList_to_SubCate(itemCode, itemName, itemPrice, itemColor, itemSi
 }
 
 
-function getItemList_to_SubCate(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, itemContent, filepath, ID, date, folderName) {
-
+//shopcart
+function getItemList_to_SubCate2(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, itemContent, filepath, ID, date, folderName) {
 	filepath = getContextPath() + "/itemFile/" + filepath;
 
-	$('#category-item-list').append(
-		'<li class="category-item">'
+	$('#shopCart-item').append(
+		'<div class="cart-list">'
+		+ '<div class="item-list main-cate-name sub-cate-name">'
 		+ '<a class="link" href="' + getContextPath() + '/Web-source/category/item-info.jsp?itemCode=' + itemCode + '">'
-		+ '<img class="item-img" src="' + filepath + '" alt=""/>'
-		+ '</a>'
-		+ '<div class="item-info">'
+		+ '<img class="img" src="' + filepath + '" alt=""/>'
+		+ '<div class="info">'
+		+ '<span class="date">' + date + '</span>'
 		+ '<span class="name">' + itemName + '</span>'
-		+ '<span class="price">' + itemPrice + '</span>'
+		+ '<span class="size-color">색상 : ' + itemColor + '</span>'
+		+ '<span class="price">가격 : ' + itemPrice + '</span>'
 		+ '</div>'
-		+ '</li>');
+		+ '</a>'
+		+ '</div>'
+		+ '</div>');
 }
 
-function getItemList_to_SubCate(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, itemContent, filepath, ID, date, folderName, userAddress, cardNumber, date) {
-
-	filepath = getContextPath() + "/itemFile/" + filepath;
-
-	$('#category-item-list').append(
-		'<li class="category-item">'
-		+ '<a class="link" href="' + getContextPath() + '/Web-source/category/item-info.jsp?itemCode=' + itemCode + '">'
-		+ '<img class="item-img" src="' + filepath + '" alt=""/>'
-		+ '</a>'
-		+ '<div class="item-info">'
-		+ '<span class="name">' + itemName + '</span>'
-		+ '<span class="price">' + itemPrice + '</span>'
-		+ '</div>'
-		+ '</li>');
+//purchase
+function getItemList_to_SubCate3(result, date) {
+	
+	for(var i=0; i<date.length; i++){
+		$('#purchase-item-list').append(
+			'<div class="partition '+i+'">'
+			+ '<div class="line-box">'+date[i].value+'</div>');
+		
+		for(var j=0; j<result.length;j++){
+			//alert("1번쨰 date value " + date[i].value);
+			//alert("1번쨰 result 10번째 날짜 date value " + result[j][10].value);
+			
+			if(date[i].value != result[j][10].value) continue;
+			
+			var filepath = getContextPath() + "/itemFile/" + result[j][8].value;
+			
+			$('#purchase-item-list').append(
+				'<div class="item-list">'
+				+ '<a class="link" href="' + getContextPath() + '/Web-source/category/item-info.jsp?itemCode=' + result[j][0].value + '">'
+				+ '<img class="img" src="' + filepath + '" alt="" />'
+				+ '<div class="info">'
+				+ '<span class="name">'+result[j][1].value+'</span>'
+				+ '<span class="size-color">'+result[j][3].value+'/'+result[j][4].value+'</span>'
+				+ '<span class="price">'+result[j][2].value+'</span>'
+				+ '</div>'
+				+ '</a>'
+				+ '</div>');
+		}
+		$('#purchase-item-list').append('</div>');
+	}
 }
+
 function getContextPath() {
 	var hostIndex = location.href.indexOf(location.host) + location.host.length;
 	var contextPath = location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));
