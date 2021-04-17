@@ -176,13 +176,13 @@ $(document).ready(function() {
 				if (flag == "category-skin") {
 					$('#category-item-list').empty();
 					for (var i = 0; i < result.length; i++) {
-						getItemList_to_SubCate1(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value);
+						getItemList_to_SubCate1(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value);
 					}
 				}
 				else if (flag == "Shop Cart") {
 					$('#shopCart-item').empty();
 					for (var i = 0; i < result.length; i++) {
-						getItemList_to_SubCate2(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value, result[i][9].value, result[i][10].value, result[i][11].value);
+						getItemList_to_SubCate2(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value, result[i][5].value, result[i][6].value, result[i][7].value, result[i][8].value, result[i][9].value, result[i][10].value);
 					}
 				}
 				else if (flag == "Purchase List") {
@@ -199,7 +199,7 @@ $(document).ready(function() {
 
 
 //category-info.jsp
-function getItemList_to_SubCate1(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, itemContent, filepath) {
+function getItemList_to_SubCate1(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, filepath) {
 
 	filepath = getContextPath() + "/itemFile/" + filepath;
 
@@ -217,7 +217,7 @@ function getItemList_to_SubCate1(itemCode, itemName, itemPrice, itemColor, itemS
 
 
 //shopcart
-function getItemList_to_SubCate2(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, itemContent, filepath, ID, date, folderName) {
+function getItemList_to_SubCate2(itemCode, itemName, itemPrice, itemColor, itemSize, main_cate, sub_cate, filepath, ID, date, folderName) {
 	filepath = getContextPath() + "/itemFile/" + filepath;
 
 	$('#shopCart-item').append(
@@ -246,9 +246,9 @@ function getItemList_to_SubCate3(result, date) {
 		
 		for(var j=0; j<result.length;j++){
 			
-			if(date[i].value != result[j][10].value) continue;
+			if(date[i].value != result[j][9].value) continue;
 			
-			var filepath = getContextPath() + "/itemFile/" + result[j][8].value;
+			var filepath = getContextPath() + "/itemFile/" + result[j][7].value;
 			
 			$('#lineBox'+i).append(
 				'<div class="item-list">'

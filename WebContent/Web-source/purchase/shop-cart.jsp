@@ -53,7 +53,7 @@
            		for(int i = 0; i < shopCartList.size(); i++){
            %>
 		           <div class="cart-list">
-		               <div class="item-list main-cate-name sub-cate-name">
+		               <div class="item-list <%=itemList.get(i).getMain_cate() %> <%=itemList.get(i).getSub_cate()%>">
 		                  <a href="<%=url8 %>/category/item-info.jsp?itemCode=<%=itemList.get(i).getItemCode() %>" class="link">
 		                     <img src="${pageContext.request.contextPath}/itemFile/<%=itemImageList.get(i) %>" alt="" class="img" />
 		                     <div class="info">

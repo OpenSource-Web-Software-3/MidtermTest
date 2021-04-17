@@ -47,13 +47,13 @@
     
     <section class="main-section sub-section set-margin">
       <div class="category-name"><%= main_cate %></div>
-      <ul class="category-item-list bag" id="category-item-list">
+      <ul class="category-item-list <%= main_cate %>" id="category-item-list">
        
        <%
        		for(int i = 0; i < itemList.size(); i++){
        %>
                 <!-- 여기에 sub_cate를 붙여서 체크된 sub_cate의 이름과 비교해서, 일치하는 sub_cate를 class이름으로 가지고 있는 li만 보이게 하고 싶었습니다. -->	
-		        <li class="category-item <%=main_cate%> pants active">
+		        <li class="category-item <%=main_cate%> <%=itemList.get(i).getSub_cate() %> active">
 		          <a class="link" href="<%=url4%>/category/item-info.jsp?itemCode=<%=itemList.get(i).getItemCode()%>">
 		            <img class="item-img" src="${pageContext.request.contextPath}/itemFile/<%=itemImageList.get(i) %>" alt="" />
 		          </a>

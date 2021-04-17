@@ -48,7 +48,7 @@
 	                    <li>
 	                       <!-- 여기 색상도 value에 itemColor를 가져다 쓸 수 있으면 좋겠어요😊 -->
 	                        <label for="color">색상</label>
-	                        <input type="color" id="color" value="#ffffff" disabled />
+	                        <input type="color" id="color" value="<%=itemDto.getItemColor() %>" disabled />
 	                    </li>
 	                    <li>
 	                        <span>사이즈</span>

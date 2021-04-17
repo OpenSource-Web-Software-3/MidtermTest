@@ -140,7 +140,7 @@ public class getItemList_to_SubCateAction extends HttpServlet {
 			result.append("{\"value\": \"" + itemList.get(i).getItemSize() + "\"},");
 			result.append("{\"value\": \"" + itemList.get(i).getMain_cate() + "\"},");
 			result.append("{\"value\": \"" + itemList.get(i).getSub_cate() + "\"},");
-			result.append("{\"value\": \"" + itemList.get(i).getItemContent() + "\"},");
+			//result.append("{\"value\": \"" + itemList.get(i).getItemContent() + "\"},");
 			result.append("{\"value\": \"" + itemImagePathList + "\"}");
 
 			if (pageTitle.equals("Purchase List")) {
@@ -178,7 +178,7 @@ public class getItemList_to_SubCateAction extends HttpServlet {
 			result.append("], \"flag\":\"Shop Cart\"}");
 		else
 			result.append("], \"flag\":\"category-skin\"}"); // category-skin.jsp
-
+		
 		return result.toString();
 
 	}
