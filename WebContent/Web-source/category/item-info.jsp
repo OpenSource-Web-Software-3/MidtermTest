@@ -77,7 +77,7 @@
                
     </section>
     
-    <a class="right-banner active" href="insert-item.jsp">
+    <a class="right-banner active" href="<%= url5 %>/insert-item.jsp">
         <img src="<%=url5 %>/image/banner/right-banner.png" alt=""  />
     </a>
     <button class="more-right-btn">
