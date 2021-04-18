@@ -1,5 +1,5 @@
 @charset "EUC-KR";
-/* �좎럥�띰옙�븐꽫 占쎌쥙猷욑옙�용쐻占쎈뜄�랃옙醫묒삕 */
+/* �좎럩伊숋옙恝�숋옙怨쀬굲�좎럥�숃땻占� 占쎌쥙�⒳펺�귣쇀占쎈쵐�뺝뜝�뚯뒠占쎌궍�앾옙�덉맄�좎럥�わ옙�낅꽞�얜�援� */
 .purchase {
     display: flex;
     flex-direction: column;
@@ -157,7 +157,7 @@
     font-size: 25px;
     font-weight: bold;
     padding: 10px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid gray;
 }
 
 .purchase-list .partition .item-list {
@@ -171,7 +171,7 @@
 }
 
 .purchase-list .partition .item-list img {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 120px;
     height: 120px;
     margin-right: 20px;
@@ -181,7 +181,7 @@
     display: flex;
     flex-direction: column;
     width: 85%;
-    border: 1px solid black;   /* border 占쎌쥙猷욑옙�용쐻占쎄쑵�ワ옙醫롫짗占쏙옙 占쎌쥙猷욑옙�용쐻占쎌늿�뺧옙醫롫짗占쏙옙 占쎄퀗�쒙옙占쎈뎨�ⓦ끉�뺧옙醫롫짗占쎌눨�앭뜝占� test (�좎럡��占쎌눨�앾옙�덉굲 占쎌쥙猷욑옙�용쐻占쎌늿�뺧옙醫롫짗占쏙옙 占쎈―�쒙옙占�)*/
+    border: 1px solid var(--border-color);   /* border 占쎌쥙�⒳펺�귣쇀占쎈쵐�뺝뜝�뚯뒠占쎌궍�앾옙袁⑸쳯�좎뜫爰덌옙�낅꽞嚥▲꺃彛�옙醫롫짗占쏙옙 占쎌쥙�⒳펺�귣쇀占쎈쵐�뺝뜝�뚯뒠占쎌궍�앾옙��뱦�좎럥踰⑨옙�낅꽞嚥▲꺃彛�옙醫롫짗占쏙옙 占쎌쥙�∽옙��삕占쎌늿�뺧옙醫롫윥占썩뫅�숋옙占쎄콬�좎럥踰⑨옙�낅꽞嚥▲꺃彛�옙醫롫윪占썩뫅�숋옙占쎌맶占쎌쥜�� test (�좎럩伊숋옙�쎌삕�좎뜴�앾옙��떜�좎럩鍮�옙�뗭삕占쎈맦�� 占쎌쥙�⒳펺�귣쇀占쎈쵐�뺝뜝�뚯뒠占쎌궍�앾옙��뱦�좎럥踰⑨옙�낅꽞嚥▲꺃彛�옙醫롫짗占쏙옙 占쎌쥙�ο옙類㏃삕占쎌늿�뺧옙醫묒삕)*/
     padding: 10px 0px 10px 25px;
     justify-content: center;
 }
@@ -225,7 +225,7 @@
 }
 
 .shop-cart .cart-list .item-list img {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 135px;
     height: 135px;
     margin-right: 20px;
@@ -233,7 +233,7 @@
 
 .shop-cart .cart-list .item-list .info {
     width: 85%;
-    border: 1px solid black;   /* border 占쎌쥙猷욑옙�용쐻占쎄쑵�ワ옙醫롫짗占쏙옙 占쎌쥙猷욑옙�용쐻占쎌늿�뺧옙醫롫짗占쏙옙 占쎄퀗�쒙옙占쎈뎨�ⓦ끉�뺧옙醫롫짗占쎌눨�앭뜝占� test (�좎럡��占쎌눨�앾옙�덉굲 占쎌쥙猷욑옙�용쐻占쎌늿�뺧옙醫롫짗占쏙옙 占쎈―�쒙옙占�)*/
+    border: 1px solid var(--border-color);   /* border 占쎌쥙�⒳펺�귣쇀占쎈쵐�뺝뜝�뚯뒠占쎌궍�앾옙袁⑸쳯�좎뜫爰덌옙�낅꽞嚥▲꺃彛�옙醫롫짗占쏙옙 占쎌쥙�⒳펺�귣쇀占쎈쵐�뺝뜝�뚯뒠占쎌궍�앾옙��뱦�좎럥踰⑨옙�낅꽞嚥▲꺃彛�옙醫롫짗占쏙옙 占쎌쥙�∽옙��삕占쎌늿�뺧옙醫롫윥占썩뫅�숋옙占쎄콬�좎럥踰⑨옙�낅꽞嚥▲꺃彛�옙醫롫윪占썩뫅�숋옙占쎌맶占쎌쥜�� test (�좎럩伊숋옙�쎌삕�좎뜴�앾옙��떜�좎럩鍮�옙�뗭삕占쎈맦�� 占쎌쥙�⒳펺�귣쇀占쎈쵐�뺝뜝�뚯뒠占쎌궍�앾옙��뱦�좎럥踰⑨옙�낅꽞嚥▲꺃彛�옙醫롫짗占쏙옙 占쎌쥙�ο옙類㏃삕占쎌늿�뺧옙醫묒삕)*/
     padding: 10px 0px 10px 25px;
 }
 .shop-cart .cart-list .info .date {
@@ -251,6 +251,3 @@
     font-size: 15px;
     margin-bottom: 5px;
 }
-
-
-
