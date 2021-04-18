@@ -12,35 +12,35 @@ html, body {
 
 
 .insert-item {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 400px;
-	height: 600px;
-	background-color: #ffffff;
-	padding: 30px;
-	maring: 20px 0px;
-	overflow-Y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 600px;
+    background-color: #ffffff;
+    padding: 30px;
+    /* margin: 20px 0px; */
+    overflow-Y: scroll;
 }
 
 .insert-item .main-page {
-	font-size: 40px;
+    font-size: 40px;
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
 }
 
 .insert-item .title {
-	display: block;
-	text-align: center;
-	font-size: 25px;
-	margin: 25px 0px;
+    display: block;
+    text-align: center;
+    font-size: 25px;
+    margin: 25px 0px;
 }
 
 .insert-item form {
-	display: flex;
-	flex-direction: column;
-	align-items: 
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
 }
 
 .insert-item div {
@@ -74,71 +74,71 @@ html, body {
 }
 
 .insert-item #item-price {
-	width: 150px;
+    width: 150px;
 }
 
 .insert-item #item-color {
-	width: 120px;
+    width: 120px;
 }
 
 .insert-item .image div {
-	display: flex;
-	flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 .insert-item span.item-img {
-	font-size: 20px;
-	margin-bottom: 5px;
+    font-size: 20px;
+    margin-bottom: 5px;
 }
 
 .insert-item .imgBtn {
-	cursor: pointer;
-	padding: 7px;
-	font-size: 15px;
-	background-color: var(--header-back);
-	border: 1px solid gray;
-	width: fit-content;
-	margin-right: 10px;
+    cursor: pointer;
+    padding: 7px;
+    font-size: 15px;
+    background-color: var(--header-back);
+    border: 1px solid gray;
+    width: fit-content;
+    margin-right: 10px;
 }
 
 .insert-item input#item-img {
-	display: none;
+    display: none;
 }
 
 .insert-item #content {
-	resize: none;
-	height: 50px;
-	width: 100%;
-	font-size: 17px;
-	font-family: Arial;
-	padding: 10px;
+    resize: none;
+    height: 50px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Arial;
+    padding: 10px;
 }
 
 .insert-item #content:focus {
-	border: 2px solid var(--header-back);
-	outline: none;
+    border: 2px solid var(--header-back);
+    outline: none;
 }
 
 .insert-item .imgBtn:hover {
-	background-color: var(--navbar-back);
+    background-color: var(--navbar-back);
 }
 
 .insert-item .img-path:focus {
-	outline: none;
+    outline: none;
 }
 .insert-item .image div {
-	margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 .insert-item .alert {
-	font-size: 15px;
+    font-size: 15px;
 }
 
 .insert-item .sendBtn {
-	padding: 10px 20px;
-	width: fit-content;
-	margin: 0px auto;
+    padding: 10px 20px;
+    width: fit-content;
+    margin: 0px auto;
 }
 
 .insert-item .sendBtn:hover {
-	background-color: var(--navbar-back);
+    background-color: var(--navbar-back);
 }

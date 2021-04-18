@@ -78,6 +78,9 @@
 	           <div class="sub">
 	               <label for="main-cate">상품의 서브 카테고리</label>
                    <select name="sub_cate" id="sub-cate">
+                        <option value="T-Shirt">T-Shirt</option>
+		                <option value="Shirt">Shirt</option>
+		                <option value="MTM">MTM</option>
                    </select>
 	           </div>
 	           <!-- 등록할 아이템의 소개 -->
