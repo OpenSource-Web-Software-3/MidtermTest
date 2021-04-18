@@ -19,7 +19,7 @@
 			<div class="find-password-text">
 				<span class="title">Password 찾기</span>
 				<span class="content">
-					회원가입 시 등록하신 ID를 입력해주세요.</br>
+					회원가입 시 등록하신 E-mail을 입력해주세요.</br>
 					해당 ID를 생성할 때 작성하신 E-mail로 비밀번호를 보내드립니다.			
 				</span>
 			</div>
