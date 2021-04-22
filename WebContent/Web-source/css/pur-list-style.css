@@ -81,6 +81,7 @@
 .purchase .item-info .row1 td {
     border-bottom: 1px solid gray;
     padding-bottom: 5px;
+    width: 25%;
 }
 
 .purchase .item-info td {
